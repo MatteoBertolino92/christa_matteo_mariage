@@ -21,9 +21,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-primary/10">
       <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="font-heading text-2xl lg:text-3xl text-primary font-bold">
-            Christa & You
-          </a>
+          <a href="#" className="font-heading text-2xl lg:text-3xl text-primary font-bold">Christa & Matteo</a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
