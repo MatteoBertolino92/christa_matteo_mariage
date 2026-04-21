@@ -56,11 +56,19 @@ export default function OpeningLetter() {
                 animate={{ rotate: isOpen ? 360 : 0 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
               >
-                <div className="w-20 h-20 border-2 border-primary/40 rounded-sm flex items-center justify-center relative overflow-hidden">
-                  {/* Oblique lines forming letter shape */}
-                  <svg className="w-full h-full p-2" viewBox="0 0 80 80">
-                    <line x1="20" y1="30" x2="40" y2="50" stroke="rgba(168, 81, 30, 0.4)" strokeWidth="2" />
-                    <line x1="60" y1="30" x2="40" y2="50" stroke="rgba(168, 81, 30, 0.4)" strokeWidth="2" />
+                <div className="w-24 h-24 border-2 border-primary/50 rounded-sm flex items-center justify-center relative overflow-hidden bg-primary/5">
+                  {/* Oblique lines forming letter/seal shape */}
+                  <svg className="w-full h-full" viewBox="0 0 100 100" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}>
+                    {/* Top left to bottom right diagonal */}
+                    <line x1="15" y1="20" x2="85" y2="80" stroke="rgba(168, 81, 30, 0.6)" strokeWidth="2.5" strokeLinecap="round" />
+                    {/* Top right to bottom left diagonal */}
+                    <line x1="85" y1="20" x2="15" y2="80" stroke="rgba(168, 81, 30, 0.6)" strokeWidth="2.5" strokeLinecap="round" />
+                    {/* Horizontal line through center */}
+                    <line x1="20" y1="50" x2="80" y2="50" stroke="rgba(168, 81, 30, 0.4)" strokeWidth="1.5" strokeLinecap="round" />
+                    {/* Decorative dots at intersections */}
+                    <circle cx="50" cy="50" r="2.5" fill="rgba(168, 81, 30, 0.5)" />
+                    <circle cx="50" cy="20" r="1.5" fill="rgba(168, 81, 30, 0.4)" />
+                    <circle cx="50" cy="80" r="1.5" fill="rgba(168, 81, 30, 0.4)" />
                   </svg>
                 </div>
               </motion.div>
