@@ -50,26 +50,30 @@ export default function OpeningLetter() {
               {/* Decorative top border line */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-              {/* Elegant seal - top right (Letter shape with oblique lines) */}
+              {/* Envelope postage + postmark */}
               <motion.div
-                className="absolute top-8 right-8"
-                animate={{ rotate: isOpen ? 360 : 0 }}
+                className="absolute top-6 right-6"
+                animate={{ rotate: isOpen ? 8 : 0 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
               >
-                <div className="w-24 h-24 border-2 border-primary/50 rounded-sm flex items-center justify-center relative overflow-hidden bg-primary/5">
-                  {/* Oblique lines forming letter/seal shape */}
-                  <svg className="w-full h-full" viewBox="0 0 100 100" style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}>
-                    {/* Top left to bottom right diagonal */}
-                    <line x1="15" y1="20" x2="85" y2="80" stroke="rgba(168, 81, 30, 0.6)" strokeWidth="2.5" strokeLinecap="round" />
-                    {/* Top right to bottom left diagonal */}
-                    <line x1="85" y1="20" x2="15" y2="80" stroke="rgba(168, 81, 30, 0.6)" strokeWidth="2.5" strokeLinecap="round" />
-                    {/* Horizontal line through center */}
-                    <line x1="20" y1="50" x2="80" y2="50" stroke="rgba(168, 81, 30, 0.4)" strokeWidth="1.5" strokeLinecap="round" />
-                    {/* Decorative dots at intersections */}
-                    <circle cx="50" cy="50" r="2.5" fill="rgba(168, 81, 30, 0.5)" />
-                    <circle cx="50" cy="20" r="1.5" fill="rgba(168, 81, 30, 0.4)" />
-                    <circle cx="50" cy="80" r="1.5" fill="rgba(168, 81, 30, 0.4)" />
-                  </svg>
+                <div className="relative w-20 h-20">
+
+                  {/* Stamp (top-right corner) */}
+                  <div className="absolute top-0 right-0 w-14 h-14 bg-primary/10 border border-primary/30 rounded-sm flex items-center justify-center">
+                    <span className="text-primary/60 text-xs font-paragraph tracking-widest">
+                      IT
+                    </span>
+                  </div>
+
+                  {/* Postmark lines */}
+                  <div className="absolute top-4 right-10 flex flex-col gap-1">
+                    <div className="w-10 h-[2px] bg-primary/30 rounded-full" />
+                    <div className="w-12 h-[2px] bg-primary/20 rounded-full" />
+                    <div className="w-8 h-[2px] bg-primary/20 rounded-full" />
+                  </div>
+
+                  {/* Circular postmark */}
+                  <div className="absolute top-6 right-6 w-10 h-10 border border-primary/30 rounded-full" />
                 </div>
               </motion.div>
 
