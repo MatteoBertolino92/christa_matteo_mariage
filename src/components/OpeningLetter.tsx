@@ -53,7 +53,7 @@ export default function OpeningLetter() {
               {/* Envelope postage + postmark */}
               <motion.div
                 className="absolute top-6 right-6"
-                animate={{ rotate: isOpen ? 8 : 0 }}
+                animate={{ rotate: isOpen ? 360 : 0 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
               >
                 <div className="relative w-20 h-20">
