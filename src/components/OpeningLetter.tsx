@@ -89,14 +89,14 @@ export default function OpeningLetter() {
                     animate={{ y: isOpen ? -20 : 0 }}
                     transition={{ duration: 0.6 }}
                   >
-                    Christa&Matteo vous ont envoyé une invitation
+                    Christa&Matteo
                   </motion.h2>
                   <motion.p
                     className="font-paragraph text-secondary-foreground/50 text-lg tracking-widest uppercase"
                     animate={{ y: isOpen ? 20 : 0 }}
                     transition={{ duration: 0.6 }}
                   >
-                    in Celebrating Love
+                    vous ont envoyé une invitation
                   </motion.p>
                   <motion.div
                     className="pt-6 flex justify-center gap-2 text-primary/40"
