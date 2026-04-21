@@ -5,6 +5,7 @@ import { ArrowRight, MapPin, Calendar, Clock, Plane, Car, Train, Gift, ExternalL
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import OpeningLetter from '@/components/OpeningLetter';
 
 // --- CANONICAL DATA TYPES (From src/entities/index.ts) ---
 interface LocalActivities {
@@ -528,6 +529,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-background selection:bg-primary selection:text-primary-foreground">
       <Header />
       <main>
+        <OpeningLetter />
         <HeroSection />
         <TheCoupleSection />
         <ScheduleSection />
