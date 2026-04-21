@@ -89,7 +89,7 @@ export default function OpeningLetter() {
                     animate={{ y: isOpen ? -20 : 0 }}
                     transition={{ duration: 0.6 }}
                   >
-                    Join Us
+                    Christa&Matteo vous ont envoyé une invitation
                   </motion.h2>
                   <motion.p
                     className="font-paragraph text-secondary-foreground/50 text-lg tracking-widest uppercase"
