@@ -6,6 +6,8 @@ import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import OpeningLetter from '@/components/OpeningLetter';
+import { useLanguageStore } from '@/lib/languageStore';
+import { getTranslation } from '@/lib/i18n';
 
 // --- CANONICAL DATA TYPES (From src/entities/index.ts) ---
 interface LocalActivities {
@@ -183,6 +185,7 @@ const HeroSection = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, 300]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+  const { language } = useLanguageStore();
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-secondary-foreground" id="home">
@@ -220,13 +223,13 @@ const HeroSection = () => {
         className="absolute bottom-0 right-0 w-full md:w-[600px] lg:w-[700px] bg-primary p-10 md:p-16 lg:p-20 z-20"
       >
         <h2 className="text-primary-foreground font-heading text-3xl md:text-4xl mb-6 leading-tight">
-          Join us in celebrating our union in the heart of Italy.
+          {getTranslation('joinUs', language)}
         </h2>
         <p className="text-primary-foreground/90 font-paragraph text-lg leading-relaxed mb-8">
-          We are thrilled to invite our closest family and friends to the beautiful region of Langhe. Prepare for a weekend filled with love, exceptional wine, and unforgettable memories.
+          {getTranslation('joinUsDescription', language)}
         </p>
         <a href="#schedule" className="inline-flex items-center gap-3 text-primary-foreground font-paragraph uppercase tracking-widest text-sm border-b border-primary-foreground/30 pb-1 hover:border-primary-foreground transition-colors">
-          View the Schedule <ArrowRight size={16} />
+          {getTranslation('viewSchedule', language)} <ArrowRight size={16} />
         </a>
       </motion.div>
     </section>
@@ -236,6 +239,7 @@ const HeroSection = () => {
 const TheCoupleSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { language } = useLanguageStore();
 
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-background" id="couple">
@@ -249,16 +253,16 @@ const TheCoupleSection = () => {
               className="max-w-xl"
             >
               <span className="text-primary font-paragraph tracking-[0.2em] uppercase text-xs font-bold mb-6 block">
-                01 // The Couple
+                01 // {getTranslation('theCouple', language)}
               </span>
               <h2 className="font-heading text-5xl md:text-7xl text-foreground mb-8 leading-tight">
-                Two worlds, <br/> one love story.
+                {getTranslation('twoWorlds', language)}
               </h2>
               <p className="font-paragraph text-secondary-foreground/80 text-lg leading-relaxed mb-6">
-                From our first meeting to this beautiful moment, our journey has been an incredible adventure bridging cultures and continents. We couldn't imagine a more perfect place than the rolling hills of Piemonte to bring our families and friends together.
+                {getTranslation('coupleDescription', language)}
               </p>
               <p className="font-paragraph text-secondary-foreground/80 text-lg leading-relaxed">
-                We are so excited to share the food, the wine, and the magic of Langhe with all of you.
+                {getTranslation('coupleDescription2', language)}
               </p>
             </motion.div>
           </div>
@@ -270,7 +274,7 @@ const TheCoupleSection = () => {
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="absolute inset-0"
             >
-              {/* Placeholder for Christa & Alexander */}
+              {/* ... keep existing code (image and decorative frame) ... */}
               <Image 
                 src="https://static.wixstatic.com/media/71f2f6_9084cbbd7d044db1908da5a12420a224~mv2.png?originWidth=576&originHeight=768" 
                 alt="Christa and Alexander" 
@@ -287,6 +291,8 @@ const TheCoupleSection = () => {
 };
 
 const ScheduleSection = () => {
+  const { language } = useLanguageStore();
+
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-secondary-foreground text-secondary" id="schedule">
       <div className="max-w-[120rem] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32">
@@ -295,13 +301,13 @@ const ScheduleSection = () => {
         <div className="lg:w-1/3">
           <div className="sticky top-32">
             <span className="text-primary font-paragraph tracking-[0.2em] uppercase text-xs font-bold mb-6 block">
-              02 // The Itinerary
+              02 // {getTranslation('theItinerary', language)}
             </span>
             <h2 className="font-heading text-5xl md:text-7xl mb-8 leading-tight text-secondary">
-              Weekend <br/> Schedule
+              {getTranslation('weekendSchedule', language)}
             </h2>
             <p className="font-paragraph text-secondary/70 text-lg">
-              A curated sequence of events to celebrate our marriage and enjoy the beauty of the region.
+              {getTranslation('scheduleDescription', language)}
             </p>
           </div>
         </div>
@@ -345,18 +351,20 @@ const ScheduleSection = () => {
 };
 
 const TravelSection = () => {
+  const { language } = useLanguageStore();
+
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-background" id="travel">
       <div className="max-w-[120rem] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-24">
           <span className="text-primary font-paragraph tracking-[0.2em] uppercase text-xs font-bold mb-6 block">
-            03 // Getting Here
+            03 // {getTranslation('gettingHere', language)}
           </span>
           <h2 className="font-heading text-5xl md:text-7xl text-foreground mb-8">
-            All Roads Lead to Langhe
+            {getTranslation('allRoadsLeadToLanghe', language)}
           </h2>
           <p className="font-paragraph text-secondary-foreground/80 text-lg">
-            Whether you are joining us from France, the Central African Republic, or just down the coast in Italy, here is how to reach our celebration.
+            {getTranslation('travelDescription', language)}
           </p>
         </div>
 
@@ -370,11 +378,11 @@ const TravelSection = () => {
               
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between border-b border-primary/10 pb-2">
-                  <span className="font-paragraph text-sm text-secondary-foreground/60 uppercase tracking-wider">Mode</span>
+                  <span className="font-paragraph text-sm text-secondary-foreground/60 uppercase tracking-wider">{getTranslation('mode', language)}</span>
                   <span className="font-paragraph text-sm font-bold text-foreground">{route.transportMode}</span>
                 </div>
                 <div className="flex justify-between border-b border-primary/10 pb-2">
-                  <span className="font-paragraph text-sm text-secondary-foreground/60 uppercase tracking-wider">Duration</span>
+                  <span className="font-paragraph text-sm text-secondary-foreground/60 uppercase tracking-wider">{getTranslation('duration', language)}</span>
                   <span className="font-paragraph text-sm font-bold text-foreground">{route.estimatedDuration}</span>
                 </div>
               </div>
@@ -391,20 +399,22 @@ const TravelSection = () => {
 };
 
 const HotelsSection = () => {
+  const { language } = useLanguageStore();
+
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#F0EBE1]" id="hotels">
       <div className="max-w-[120rem] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
           <div>
             <span className="text-primary font-paragraph tracking-[0.2em] uppercase text-xs font-bold mb-6 block">
-              04 // Accommodation
+              04 // {getTranslation('accommodation', language)}
             </span>
             <h2 className="font-heading text-5xl md:text-7xl text-foreground">
-              Where to Stay
+              {getTranslation('whereToStay', language)}
             </h2>
           </div>
           <p className="font-paragraph text-secondary-foreground/80 text-lg max-w-md">
-            We have curated a list of our favorite local hotels and relais to ensure your stay is as comfortable as it is beautiful.
+            {getTranslation('hotelDescription', language)}
           </p>
         </div>
 
@@ -440,15 +450,17 @@ const HotelsSection = () => {
 };
 
 const ActivitiesSection = () => {
+  const { language } = useLanguageStore();
+
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-background" id="activities">
       <div className="max-w-[120rem] mx-auto">
         <div className="text-center mb-24">
           <span className="text-primary font-paragraph tracking-[0.2em] uppercase text-xs font-bold mb-6 block">
-            05 // Explore
+            05 // {getTranslation('explore', language)}
           </span>
           <h2 className="font-heading text-5xl md:text-7xl text-foreground">
-            Discover Langhe
+            {getTranslation('discoverLanghe', language)}
           </h2>
         </div>
 
@@ -474,7 +486,7 @@ const ActivitiesSection = () => {
                   {activity.description}
                 </p>
                 <button className="font-paragraph text-sm font-bold uppercase tracking-widest text-foreground border-b border-foreground pb-1 hover:text-primary hover:border-primary transition-colors">
-                  Learn More
+                  {getTranslation('learnMore', language)}
                 </button>
               </div>
             </div>
@@ -487,6 +499,7 @@ const ActivitiesSection = () => {
 
 const GiftRegistrySection = () => {
   const gift = giftRegistryData[0]; // Assuming one main registry entry for this design
+  const { language } = useLanguageStore();
 
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-primary text-primary-foreground relative overflow-hidden" id="registry">
@@ -502,21 +515,21 @@ const GiftRegistrySection = () => {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <Gift size={48} className="mx-auto mb-8 opacity-80" />
         <span className="font-paragraph tracking-[0.2em] uppercase text-xs font-bold mb-6 block opacity-80">
-          06 // Registry
+          06 // {getTranslation('registry', language)}
         </span>
         <h2 className="font-heading text-5xl md:text-7xl mb-8">
-          {gift.giftName}
+          {getTranslation('honeymoon', language)}
         </h2>
         <p className="font-paragraph text-lg md:text-xl leading-relaxed mb-12 opacity-90">
-          {gift.description}
+          {getTranslation('honeymoonDescription', language)}
         </p>
         
         <div className="bg-primary-foreground/10 p-8 md:p-12 backdrop-blur-sm border border-primary-foreground/20">
           <p className="font-paragraph mb-8 opacity-90">
-            {gift.contributionInstructions}
+            {getTranslation('contributionInstructions', language)}
           </p>
           <button className="bg-primary-foreground text-primary px-8 py-4 font-paragraph text-sm font-bold uppercase tracking-widest hover:bg-secondary transition-colors inline-flex items-center gap-2">
-            Contribute Here <ExternalLink size={16} />
+            {getTranslation('contributeHere', language)} <ExternalLink size={16} />
           </button>
         </div>
       </div>

@@ -1,16 +1,20 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
+import { useLanguageStore } from '@/lib/languageStore';
+import { getTranslation, languages, Language } from '@/lib/i18n';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const { language, setLanguage } = useLanguageStore();
 
   const navLinks = [
-    { href: '#introduction', label: 'Our Story' },
-    { href: '#event-details', label: 'Event Details' },
-    { href: '#travel', label: 'Travel' },
-    { href: '#hotels', label: 'Hotels' },
-    { href: '#activities', label: 'Activities' },
-    { href: '#gifts', label: 'Gift Registry' },
+    { href: '#introduction', labelKey: 'ourStory' as const },
+    { href: '#event-details', labelKey: 'eventDetails' as const },
+    { href: '#travel', labelKey: 'travel' as const },
+    { href: '#hotels', labelKey: 'hotels' as const },
+    { href: '#activities', labelKey: 'activities' as const },
+    { href: '#gifts', labelKey: 'giftRegistry' as const },
   ];
 
   return (
@@ -29,19 +33,54 @@ export default function Header() {
                 href={link.href}
                 className="font-paragraph text-base text-secondary-foreground hover:text-primary transition-colors"
               >
-                {link.label}
+                {getTranslation(link.labelKey, language)}
               </a>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-primary"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Language Selector and Mobile Menu */}
+          <div className="flex items-center gap-4">
+            {/* Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                className="flex items-center gap-2 p-2 text-primary hover:text-foreground transition-colors"
+                aria-label="Change language"
+              >
+                <Globe size={20} />
+                <span className="text-lg">{languages.find(l => l.code === language)?.flag}</span>
+              </button>
+              
+              {isLanguageOpen && (
+                <div className="absolute right-0 mt-2 bg-white border border-primary/20 rounded-lg shadow-lg z-50">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setLanguage(lang.code as Language);
+                        setIsLanguageOpen(false);
+                      }}
+                      className={`w-full px-4 py-2 text-left font-paragraph text-sm flex items-center gap-2 hover:bg-primary/10 transition-colors ${
+                        language === lang.code ? 'bg-primary/5 text-primary font-bold' : 'text-secondary-foreground'
+                      }`}
+                    >
+                      <span className="text-lg">{lang.flag}</span>
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2 text-primary"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -55,7 +94,7 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                   className="font-paragraph text-base text-secondary-foreground hover:text-primary transition-colors py-2"
                 >
-                  {link.label}
+                  {getTranslation(link.labelKey, language)}
                 </a>
               ))}
             </div>
