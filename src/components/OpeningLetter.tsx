@@ -166,7 +166,7 @@ export default function OpeningLetter() {
                   </div>
 
                   <h3 className="font-heading text-4xl md:text-5xl text-primary leading-tight tracking-tight">
-                    Join Us in Celebrating
+                    Ouvrez l'invitation
                   </h3>
 
                   <p className="font-paragraph text-primary/75 text-lg leading-relaxed">
