@@ -182,7 +182,7 @@ export default function OpeningLetter() {
                       <span>✦</span>
                     </div>
                     <p className="font-paragraph text-primary/50 text-sm tracking-widest uppercase">
-                      September 14, 2024 • Langhe, Piemonte
+                      Mai 29, 2027 • Cherasco, Langhe, Piemonte
                     </p>
                   </div>
 
