@@ -176,7 +176,7 @@ export default function OpeningLetter() {
                   {/* Couple names */}
                   <div className="pt-6 space-y-2">
                     <p className="font-heading text-3xl text-primary tracking-tight">
-                      Christa & Alexander
+                      Christa & Matteo
                     </p>
                     <div className="flex justify-center gap-2 text-primary/40 text-sm">
                       <span>✦</span>
