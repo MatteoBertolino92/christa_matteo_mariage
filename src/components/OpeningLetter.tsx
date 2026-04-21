@@ -115,7 +115,7 @@ export default function OpeningLetter() {
                   animate={{ opacity: isOpen ? 0 : 0.6 }}
                   transition={{ duration: 0.5 }}
                 >
-                  Click to open
+                  Clique ici pour l'ouvrir
                 </motion.p>
               </div>
             </div>
