@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function OpeningLetter() {
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    // Auto-open after a short delay
-    const timer = setTimeout(() => setIsOpen(true), 800);
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -56,15 +50,18 @@ export default function OpeningLetter() {
               {/* Decorative top border line */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-              {/* Elegant seal - top right */}
+              {/* Elegant seal - top right (Letter shape with oblique lines) */}
               <motion.div
                 className="absolute top-8 right-8"
                 animate={{ rotate: isOpen ? 360 : 0 }}
                 transition={{ duration: 1.2, ease: "easeInOut" }}
               >
-                <div className="w-20 h-20 border-2 border-primary/40 rounded-full flex items-center justify-center relative">
-                  <div className="absolute inset-2 border border-primary/20 rounded-full" />
-                  <span className="text-primary/60 font-heading text-2xl">✦</span>
+                <div className="w-20 h-20 border-2 border-primary/40 rounded-sm flex items-center justify-center relative overflow-hidden">
+                  {/* Oblique lines forming letter shape */}
+                  <svg className="w-full h-full p-2" viewBox="0 0 80 80">
+                    <line x1="20" y1="30" x2="40" y2="50" stroke="rgba(168, 81, 30, 0.4)" strokeWidth="2" />
+                    <line x1="60" y1="30" x2="40" y2="50" stroke="rgba(168, 81, 30, 0.4)" strokeWidth="2" />
+                  </svg>
                 </div>
               </motion.div>
 
