@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLanguageStore } from '@/lib/languageStore';
 import { getTranslation, languages, Language } from '@/lib/i18n';
@@ -6,7 +6,12 @@ import { getTranslation, languages, Language } from '@/lib/i18n';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const { language, setLanguage } = useLanguageStore();
+  const { language, setLanguage, initializeFromUrl } = useLanguageStore();
+
+  // Initialize language from URL on component mount
+  useEffect(() => {
+    initializeFromUrl();
+  }, [initializeFromUrl]);
 
   const navLinks = [
     { href: '#introduction', labelKey: 'ourStory' as const },

@@ -28,6 +28,19 @@ const router = createBrowserRouter([
         },
       },
       {
+        path: ":lang",
+        element: <Layout />,
+        children: [
+          {
+            index: true,
+            element: <HomePage />,
+            routeMetadata: {
+              pageIdentifier: 'home',
+            },
+          },
+        ],
+      },
+      {
         path: "*",
         element: <Navigate to="/" replace />,
       },
