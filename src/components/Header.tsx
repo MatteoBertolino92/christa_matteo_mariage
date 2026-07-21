@@ -14,6 +14,7 @@ export default function Header() {
     { href: '#travel', labelKey: 'travel' as const },
     { href: '#hotels', labelKey: 'hotels' as const },
     { href: '#activities', labelKey: 'activities' as const },
+    { href: '#rsvp', labelKey: 'rsvpTitle' as const },
     { href: '#gifts', labelKey: 'giftRegistry' as const },
   ];
 

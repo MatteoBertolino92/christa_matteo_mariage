@@ -1,4 +1,3 @@
-// HPI 1.7-V
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ArrowRight, MapPin, Calendar, Clock, Plane, Car, Train, Gift, ExternalLink } from 'lucide-react';
@@ -6,6 +5,7 @@ import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import OpeningLetter from '@/components/OpeningLetter';
+import RSVPSection from '@/components/RSVPSection';
 import { useLanguageStore } from '@/lib/languageStore';
 import { getTranslation } from '@/lib/i18n';
 
@@ -549,6 +549,7 @@ export default function HomePage() {
         <TravelSection />
         <HotelsSection />
         <ActivitiesSection />
+        <RSVPSection />
         <GiftRegistrySection />
       </main>
       <Footer />

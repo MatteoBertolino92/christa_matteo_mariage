@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useLanguageStore } from '@/lib/languageStore';
+import { getTranslation } from '@/lib/i18n';
 
 export default function OpeningLetter() {
   const [isOpen, setIsOpen] = useState(false);
+  const { language } = useLanguageStore();
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -96,7 +99,7 @@ export default function OpeningLetter() {
                     animate={{ y: isOpen ? 20 : 0 }}
                     transition={{ duration: 0.6 }}
                   >
-                    vous ont envoyé une invitation
+                    {getTranslation('sentInvitation', language)}
                   </motion.p>
                   <motion.div
                     className="pt-6 flex justify-center gap-2 text-primary/40"
@@ -115,7 +118,7 @@ export default function OpeningLetter() {
                   animate={{ opacity: isOpen ? 0 : 0.6 }}
                   transition={{ duration: 0.5 }}
                 >
-                  Clique ici pour l'ouvrir
+                  {getTranslation('clickToOpen', language)}
                 </motion.p>
               </div>
             </div>
@@ -207,7 +210,7 @@ export default function OpeningLetter() {
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            ✦ Click to open ✦
+            ✦ {language === 'en' ? 'Click to open' : language === 'it' ? 'Clicca per aprire' : 'Clique pour ouvrir'} ✦
           </motion.p>
         </motion.div>
       </div>
