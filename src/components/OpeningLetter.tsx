@@ -169,11 +169,11 @@ export default function OpeningLetter() {
                   </div>
 
                   <h3 className="font-heading text-4xl md:text-5xl text-primary leading-tight tracking-tight">
-                    Join us
+                    {getTranslation('joinUsLetter', language)}
                   </h3>
 
                   <p className="font-paragraph text-primary/75 text-lg leading-relaxed">
-                    We invite you to share in our joy as we celebrate our union in the heart of Italy. A weekend of love, wine, and unforgettable memories awaits.
+                    {getTranslation('joinUsLetterDescription', language)}
                   </p>
 
                   {/* Couple names */}
@@ -185,7 +185,7 @@ export default function OpeningLetter() {
                       <span>✦</span>
                     </div>
                     <p className="font-paragraph text-primary/50 text-sm tracking-widest uppercase">
-                      Mai 29, 2027 • Cherasco, Langhe, Italia
+                      {getTranslation('letterDate', language)}
                     </p>
                   </div>
 

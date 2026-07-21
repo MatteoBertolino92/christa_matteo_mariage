@@ -76,6 +76,9 @@ export const translations = {
     no: 'Non',
     submit: 'Envoyer',
     submitting: 'Envoi en cours...',
+    joinUsLetter: 'Rejoignez-nous',
+    joinUsLetterDescription: 'Nous vous invitons à partager notre joie alors que nous célébrons notre union au cœur de l\'Italie. Un week-end d\'amour, de vin et de souvenirs inoubliables vous attend.',
+    letterDate: '29 mai 2027 • Cherasco, Langhe, Italie',
   },
   it: {
     ourStory: 'La Nostra Storia',
@@ -153,6 +156,9 @@ export const translations = {
     no: 'No',
     submit: 'Invia',
     submitting: 'Invio in corso...',
+    joinUsLetter: 'Unisciti a noi',
+    joinUsLetterDescription: 'Ti invitiamo a condividere la nostra gioia mentre celebriamo la nostra unione nel cuore dell\'Italia. Un fine settimana d\'amore, vino e ricordi indimenticabili ti aspetta.',
+    letterDate: '29 maggio 2027 • Cherasco, Langhe, Italia',
   },
   en: {
     ourStory: 'Our Story',
@@ -230,6 +236,9 @@ export const translations = {
     no: 'No',
     submit: 'Submit',
     submitting: 'Submitting...',
+    joinUsLetter: 'Join Us',
+    joinUsLetterDescription: 'We invite you to share in our joy as we celebrate our union in the heart of Italy. A weekend of love, wine, and unforgettable memories awaits.',
+    letterDate: 'May 29, 2027 • Cherasco, Langhe, Italy',
   },
 };
 
