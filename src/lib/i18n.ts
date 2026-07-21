@@ -44,8 +44,6 @@ export const translations = {
     honeymoon: 'Notre Lune de Miel Japonaise',
     honeymoonDescription: 'Votre présence à notre mariage est le plus grand cadeau de tous. Cependant, si vous souhaitez nous honorer d\'un cadeau, une contribution à notre lune de miel de rêve au Japon serait chaleureusement appréciée.',
     contributionInstructions: 'Les contributions peuvent être effectuées de manière sécurisée via le lien ci-dessous, ou une tirelire sera disponible à la réception.',
-    joinUs: 'Rejoignez-nous pour célébrer notre union au cœur de l\'Italie.',
-    joinUsDescription: 'Nous sommes ravis d\'inviter notre famille et nos amis les plus proches à la belle région de Langhe. Préparez-vous pour un week-end rempli d\'amour, de vin exceptionnel et de souvenirs inoubliables.',
     casaDiLanga: 'Casa di Langa',
     casaDiLangaDescription: 'Un magnifique complexe de luxe durable niché dans les vignobles. Nous avons une petite réserve de chambres ici sous nos noms.',
     albergoDellagenzia: 'Albergo dell\'Agenzia',
