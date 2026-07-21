@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { getTranslation, Language, languages } from '@/lib/i18n';
 import { useLanguageStore } from '@/lib/languageStore';
-import { getTranslation, languages, Language } from '@/lib/i18n';
+import { Globe, Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +14,6 @@ export default function Header() {
   }, [initializeFromUrl]);
 
   const navLinks = [
-    { href: '#introduction', labelKey: 'ourStory' as const },
     { href: '#event-details', labelKey: 'eventDetails' as const },
     { href: '#travel', labelKey: 'travel' as const },
     { href: '#hotels', labelKey: 'hotels' as const },
@@ -54,7 +53,7 @@ export default function Header() {
                 <Globe size={20} />
                 <span className="text-lg">{languages.find(l => l.code === language)?.flag}</span>
               </button>
-              
+
               {isLanguageOpen && (
                 <div className="absolute right-0 mt-2 bg-white border border-primary/20 rounded-lg shadow-lg z-50">
                   {languages.map((lang) => (
