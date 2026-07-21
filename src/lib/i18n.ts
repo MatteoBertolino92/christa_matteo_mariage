@@ -1,7 +1,6 @@
 // French translations
 export const translations = {
   fr: {
-    ourStory: 'Notre Histoire',
     eventDetails: 'Détails de l\'Événement',
     travel: 'Voyage',
     hotels: 'Hôtels',
@@ -81,7 +80,6 @@ export const translations = {
     letterDate: '29 mai 2027 • Cherasco, Langhe, Italie',
   },
   it: {
-    ourStory: 'La Nostra Storia',
     eventDetails: 'Dettagli dell\'Evento',
     travel: 'Viaggio',
     hotels: 'Hotel',
@@ -161,7 +159,6 @@ export const translations = {
     letterDate: '29 maggio 2027 • Cherasco, Langhe, Italia',
   },
   en: {
-    ourStory: 'Our Story',
     eventDetails: 'Event Details',
     travel: 'Travel',
     hotels: 'Hotels',
