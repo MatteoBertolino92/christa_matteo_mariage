@@ -1,13 +1,13 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { ArrowRight, MapPin, Calendar, Clock, Plane, Car, Train, Gift, ExternalLink } from 'lucide-react';
-import { Image } from '@/components/ui/image';
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import OpeningLetter from '@/components/OpeningLetter';
 import RSVPSection from '@/components/RSVPSection';
-import { useLanguageStore } from '@/lib/languageStore';
+import { Image } from '@/components/ui/image';
 import { getTranslation } from '@/lib/i18n';
+import { useLanguageStore } from '@/lib/languageStore';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Calendar, Car, Clock, ExternalLink, Gift, MapPin, Plane } from 'lucide-react';
+import { useRef } from 'react';
 
 // --- CANONICAL DATA TYPES (From src/entities/index.ts) ---
 interface LocalActivities {
@@ -191,16 +191,16 @@ const HeroSection = () => {
     <section className="relative h-screen w-full overflow-hidden bg-secondary-foreground" id="home">
       {/* Parallax Background */}
       <motion.div style={{ y: y1 }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
-        <Image 
-          src="https://static.wixstatic.com/media/71f2f6_64dd71f49e6e432292f224dbdd3bb476~mv2.png?originWidth=1600&originHeight=896" 
-          alt="Moody Langhe Landscape" 
+        <Image
+          src="https://static.wixstatic.com/media/71f2f6_64dd71f49e6e432292f224dbdd3bb476~mv2.png?originWidth=1600&originHeight=896"
+          alt="Moody Langhe Landscape"
           className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
       </motion.div>
 
       {/* Main Typography - Left Aligned */}
-      <motion.div 
+      <motion.div
         style={{ opacity }}
         className="absolute inset-0 max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 flex flex-col justify-center z-10"
       >
@@ -216,18 +216,12 @@ const HeroSection = () => {
       </motion.div>
 
       {/* The Overlapping Introduction Block (Inspired by the image) */}
-      <motion.div 
+      <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="absolute bottom-0 right-0 w-full md:w-[600px] lg:w-[700px] bg-primary p-10 md:p-16 lg:p-20 z-20"
       >
-        <h2 className="text-primary-foreground font-heading text-3xl md:text-4xl mb-6 leading-tight">
-          {getTranslation('joinUs', language)}
-        </h2>
-        <p className="text-primary-foreground/90 font-paragraph text-lg leading-relaxed mb-8">
-          {getTranslation('joinUsDescription', language)}
-        </p>
         <a href="#schedule" className="inline-flex items-center gap-3 text-primary-foreground font-paragraph uppercase tracking-widest text-sm border-b border-primary-foreground/30 pb-1 hover:border-primary-foreground transition-colors">
           {getTranslation('viewSchedule', language)} <ArrowRight size={16} />
         </a>
@@ -246,7 +240,7 @@ const TheCoupleSection = () => {
       <div className="max-w-[120rem] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
           <div className="order-2 lg:order-1" ref={ref}>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.8 }}
@@ -266,18 +260,18 @@ const TheCoupleSection = () => {
               </p>
             </motion.div>
           </div>
-          
+
           <div className="order-1 lg:order-2 relative h-[60vh] lg:h-[80vh] w-full">
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="absolute inset-0"
             >
               {/* ... keep existing code (image and decorative frame) ... */}
-              <Image 
-                src="https://static.wixstatic.com/media/71f2f6_9084cbbd7d044db1908da5a12420a224~mv2.png?originWidth=576&originHeight=768" 
-                alt="Christa and Alexander" 
+              <Image
+                src="https://static.wixstatic.com/media/71f2f6_9084cbbd7d044db1908da5a12420a224~mv2.png?originWidth=576&originHeight=768"
+                alt="Christa and Alexander"
                 className="w-full h-full object-cover"
               />
               {/* Decorative Frame */}
@@ -296,7 +290,7 @@ const ScheduleSection = () => {
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-secondary-foreground text-secondary" id="schedule">
       <div className="max-w-[120rem] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32">
-        
+
         {/* Sticky Left Column */}
         <div className="lg:w-1/3">
           <div className="sticky top-32">
@@ -327,7 +321,7 @@ const ScheduleSection = () => {
                     <span className="font-paragraph text-sm">{event.eventTime}</span>
                   </div>
                 </div>
-                
+
                 <div className="md:col-span-8">
                   <h3 className="font-heading text-3xl md:text-4xl mb-4 text-secondary group-hover:text-primary transition-colors">
                     {event.eventName}
@@ -375,7 +369,7 @@ const TravelSection = () => {
                 <h3 className="font-heading text-3xl text-foreground">{route.originCity}</h3>
                 {route.transportMode?.includes('Flight') ? <Plane className="text-primary" size={28} /> : <Car className="text-primary" size={28} />}
               </div>
-              
+
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between border-b border-primary/10 pb-2">
                   <span className="font-paragraph text-sm text-secondary-foreground/60 uppercase tracking-wider">{getTranslation('mode', language)}</span>
@@ -386,7 +380,7 @@ const TravelSection = () => {
                   <span className="font-paragraph text-sm font-bold text-foreground">{route.estimatedDuration}</span>
                 </div>
               </div>
-              
+
               <p className="font-paragraph text-secondary-foreground/80 leading-relaxed">
                 {route.travelInstructions}
               </p>
@@ -422,9 +416,9 @@ const HotelsSection = () => {
           {recommendedHotelsData.map((hotel) => (
             <div key={hotel._id} className="group cursor-pointer">
               <div className="relative h-[400px] w-full mb-6 overflow-hidden">
-                <Image 
-                  src={hotel.hotelImage || "https://static.wixstatic.com/media/71f2f6_89dcfe24a9f648fd8151051a9c3cc865~mv2.png?originWidth=576&originHeight=384"} 
-                  alt={hotel.hotelName || "Hotel"} 
+                <Image
+                  src={hotel.hotelImage || "https://static.wixstatic.com/media/71f2f6_89dcfe24a9f648fd8151051a9c3cc865~mv2.png?originWidth=576&originHeight=384"}
+                  alt={hotel.hotelName || "Hotel"}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-4 right-4 bg-white px-3 py-1 font-paragraph text-xs font-bold tracking-widest text-foreground">
@@ -468,9 +462,9 @@ const ActivitiesSection = () => {
           {localActivitiesData.map((activity, index) => (
             <div key={activity._id} className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}>
               <div className="w-full lg:w-1/2 h-[50vh] lg:h-[70vh] relative">
-                <Image 
-                  src={activity.activityImage || "https://static.wixstatic.com/media/71f2f6_83c532564532465686a61293445c5e56~mv2.png?originWidth=1152&originHeight=640"} 
-                  alt={activity.activityName || "Activity"} 
+                <Image
+                  src={activity.activityImage || "https://static.wixstatic.com/media/71f2f6_83c532564532465686a61293445c5e56~mv2.png?originWidth=1152&originHeight=640"}
+                  alt={activity.activityName || "Activity"}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -505,9 +499,9 @@ const GiftRegistrySection = () => {
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-primary text-primary-foreground relative overflow-hidden" id="registry">
       {/* Decorative background element */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-         <Image 
-            src="https://static.wixstatic.com/media/71f2f6_78e2bc1f8b7e410b9377b3ac408a3e0a~mv2.png?originWidth=1152&originHeight=768" 
-            alt="Texture" 
+         <Image
+            src="https://static.wixstatic.com/media/71f2f6_78e2bc1f8b7e410b9377b3ac408a3e0a~mv2.png?originWidth=1152&originHeight=768"
+            alt="Texture"
             className="w-full h-full object-cover mix-blend-overlay"
           />
       </div>
@@ -523,7 +517,7 @@ const GiftRegistrySection = () => {
         <p className="font-paragraph text-lg md:text-xl leading-relaxed mb-12 opacity-90">
           {getTranslation('honeymoonDescription', language)}
         </p>
-        
+
         <div className="bg-primary-foreground/10 p-8 md:p-12 backdrop-blur-sm border border-primary-foreground/20">
           <p className="font-paragraph mb-8 opacity-90">
             {getTranslation('contributionInstructions', language)}
