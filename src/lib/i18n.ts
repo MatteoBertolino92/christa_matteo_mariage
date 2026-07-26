@@ -7,7 +7,7 @@ export const translations = {
     activities: 'Activités',
     giftRegistry: 'Registre de Cadeaux',
     theCouple: 'Notre mariage',
-    twoWorlds: 'Nous 🇨🇫🇮🇹🇫🇷',
+    twoWorlds: 'Nous 🇨🇫 🇮🇹 🇫🇷',
     coupleDescription: 'todo',
     coupleDescription2: 'todo',
     theItinerary: 'L\'Itinéraire',
