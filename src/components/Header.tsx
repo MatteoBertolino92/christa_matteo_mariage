@@ -14,7 +14,7 @@ export default function Header() {
   }, [initializeFromUrl]);
 
   const navLinks = [
-    { href: '#event-details', labelKey: 'eventDetails' as const },
+    //{ href: '#event-details', labelKey: 'eventDetails' as const },
     { href: '#travel', labelKey: 'travel' as const },
     { href: '#hotels', labelKey: 'hotels' as const },
     { href: '#activities', labelKey: 'activities' as const },
