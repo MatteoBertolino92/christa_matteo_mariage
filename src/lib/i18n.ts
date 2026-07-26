@@ -83,7 +83,7 @@ export const translations = {
     theCeremony_date: 'Samedi 28 septembre',
     theCeremony_location: 'Santuario di Nostra Signora del Popolo, Cherasco',
     receptionCelebration_date: 'Samedi 29 mai',
-    receptionCelebration_location: 'Cascina Marinetta',
+    receptionCelebration_location: 'Cascina Marinetta, Cherasco',
     farewellBrunch_date: 'Dimanche 30 mai',
     farewellBrunch_location: 'todo',
   },
