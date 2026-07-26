@@ -1,11 +1,12 @@
-import { motion } from 'framer-motion';
 import { Image } from '@/components/ui/image';
+import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 export default function HeroSection() {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {// Background Image
+      }
       <div className="absolute inset-0 z-0">
         <Image
           src="https://static.wixstatic.com/media/71f2f6_e2d041a6d79b49cc946ace5062383e8f~mv2.png?originWidth=1920&originHeight=1024"
@@ -16,7 +17,8 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
       </div>
 
-      {/* Content */}
+      {// Content
+      }
       <div className="relative z-10 max-w-[120rem] mx-auto px-6 lg:px-12 py-32 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,7 +40,8 @@ export default function HeroSection() {
           </p>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {// Scroll Indicator
+        }
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
