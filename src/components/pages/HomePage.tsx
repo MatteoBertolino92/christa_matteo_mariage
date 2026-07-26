@@ -210,7 +210,7 @@ const HeroSection = () => {
           </p>
           <h1 className="text-primary-foreground font-heading text-6xl md:text-8xl lg:text-[9rem] leading-[0.9] tracking-tight">
             Christa <br />
-            <span className="italic font-light text-primary/90">&</span> Alexander
+            <span className="italic font-light text-primary/90">&</span> Matteo
           </h1>
         </div>
       </motion.div>
@@ -271,7 +271,7 @@ const TheCoupleSection = () => {
               {/* ... keep existing code (image and decorative frame) ... */}
               <Image
                 src="https://static.wixstatic.com/media/71f2f6_9084cbbd7d044db1908da5a12420a224~mv2.png?originWidth=576&originHeight=768"
-                alt="Christa and Alexander"
+                alt="Christa and Matteo"
                 className="w-full h-full object-cover"
               />
               {/* Decorative Frame */}
