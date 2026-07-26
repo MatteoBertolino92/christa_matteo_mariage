@@ -290,6 +290,37 @@ const TheCoupleSection = () => {
 const ScheduleSection = () => {
   const { language } = useLanguageStore();
 
+  // Map event names to translation keys for event-specific data
+  const getEventTranslations = (eventName: string) => {
+    const eventMap: { [key: string]: { title: string; description: string; date: string; location: string } } = {
+      'Welcome Aperitivo': {
+        title: 'welcomeAperitivo',
+        description: 'welcomeDescription',
+        date: 'welcomeAperitivo_date',
+        location: 'welcomeAperitivo_location'
+      },
+      'The Ceremony': {
+        title: 'theCeremony',
+        description: 'ceremonyDescription',
+        date: 'theCeremony_date',
+        location: 'theCeremony_location'
+      },
+      'Reception & Celebration': {
+        title: 'receptionCelebration',
+        description: 'receptionDescription',
+        date: 'receptionCelebration_date',
+        location: 'receptionCelebration_location'
+      },
+      'Farewell Brunch': {
+        title: 'farewellBrunch',
+        description: 'brunchDescription',
+        date: 'farewellBrunch_date',
+        location: 'farewellBrunch_location'
+      }
+    };
+    return eventMap[eventName];
+  };
+
   return (
     <section className="py-32 px-6 md:px-12 lg:px-24 bg-secondary-foreground text-secondary" id="schedule">
       <div className="max-w-[120rem] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32">
@@ -311,35 +342,42 @@ const ScheduleSection = () => {
 
         {/* Scrolling Right Column */}
         <div className="lg:w-2/3 flex flex-col">
-          {eventScheduleData.map((event, index) => (
-            <div key={event._id} className="group relative border-t border-secondary/20 py-12 first:pt-0">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                <div className="md:col-span-4 flex flex-col gap-2">
-                  <div className="flex items-center gap-2 text-primary">
-                    <Calendar size={16} />
-                    <span className="font-paragraph text-sm font-bold">{event.eventDate}</span>
+          {eventScheduleData.map((event, index) => {
+            const translations = getEventTranslations(event.eventName || '');
+            return (
+              <div key={event._id} className="group relative border-t border-secondary/20 py-12 first:pt-0">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+                  <div className="md:col-span-4 flex flex-col gap-2">
+                    <div className="flex items-center gap-2 text-primary">
+                      <Calendar size={16} />
+                      <span className="font-paragraph text-sm font-bold">
+                        {translations ? getTranslation(translations.date as keyof typeof translations, language) : event.eventDate}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-secondary/60">
+                      <Clock size={16} />
+                      <span className="font-paragraph text-sm">{event.eventTime}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-secondary/60">
-                    <Clock size={16} />
-                    <span className="font-paragraph text-sm">{event.eventTime}</span>
-                  </div>
-                </div>
 
-                <div className="md:col-span-8">
-                  <h3 className="font-heading text-3xl md:text-4xl mb-4 text-secondary group-hover:text-primary transition-colors">
-                    {event.eventName}
-                  </h3>
-                  <div className="flex items-start gap-2 text-secondary/80 mb-4">
-                    <MapPin size={18} className="mt-1 shrink-0 text-primary" />
-                    <span className="font-paragraph text-lg">{event.location}</span>
+                  <div className="md:col-span-8">
+                    <h3 className="font-heading text-3xl md:text-4xl mb-4 text-secondary group-hover:text-primary transition-colors">
+                      {translations ? getTranslation(translations.title as keyof typeof translations, language) : event.eventName}
+                    </h3>
+                    <div className="flex items-start gap-2 text-secondary/80 mb-4">
+                      <MapPin size={18} className="mt-1 shrink-0 text-primary" />
+                      <span className="font-paragraph text-lg">
+                        {translations ? getTranslation(translations.location as keyof typeof translations, language) : event.location}
+                      </span>
+                    </div>
+                    <p className="font-paragraph text-secondary/60 leading-relaxed">
+                      {translations ? getTranslation(translations.description as keyof typeof translations, language) : event.description}
+                    </p>
                   </div>
-                  <p className="font-paragraph text-secondary/60 leading-relaxed">
-                    {event.description}
-                  </p>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
