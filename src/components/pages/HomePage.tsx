@@ -140,23 +140,23 @@ const recommendedHotelsData: RecommendedHotels[] = [
 const localActivitiesData: LocalActivities[] = [
   {
     _id: 'act-1',
-    activityName: 'Barolo Wine Tasting',
-    location: 'Various Cantinas',
-    description: 'You cannot visit Langhe without tasting the "King of Wines". We recommend booking tastings at Marchesi di Barolo or Ceretto in advance.',
+    activityName: '\"Degustazione\" Barolo',
+    location: 'todo',
+    description: 'todo',
     activityImage: 'https://static.wixstatic.com/media/71f2f6_0c58de260d1c4162a2e1cc2bdb70a6a0~mv2.png?originWidth=1152&originHeight=640'
   },
   {
     _id: 'act-2',
-    activityName: 'Truffle Hunting Experience',
-    location: 'Alba Woods',
-    description: 'Join a local "Trifolau" and his trained dog for a walk through the woods to hunt for the famous white truffle of Alba.',
+    activityName: 'Torino',
+    location: 'Torino',
+    description: 'todo',
     activityImage: 'https://static.wixstatic.com/media/71f2f6_eb397476825546859f0f3d22aba66c2a~mv2.png?originWidth=1152&originHeight=640'
   },
   {
     _id: 'act-3',
-    activityName: 'E-Bike Vineyard Tour',
-    location: 'La Morra / Barbaresco',
-    description: 'Rent an e-bike and cycle through the UNESCO World Heritage landscapes. It is the best way to see the rolling hills and hidden castles.',
+    activityName: 'todo',
+    location: 'todo',
+    description: 'todo',
     activityImage: 'https://static.wixstatic.com/media/71f2f6_53ca94954c494ce78a7f13a41f920da9~mv2.png?originWidth=1152&originHeight=640'
   }
 ];
