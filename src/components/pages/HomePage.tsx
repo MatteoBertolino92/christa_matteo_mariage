@@ -305,7 +305,7 @@ const ScheduleSection = () => {
         date: 'theCeremony_date',
         location: 'theCeremony_location',
         map: 'https://share.google/o3kCWzLvHP5WtsphQ'
-      },
+      } as any,
       'Reception & Celebration': {
         title: 'receptionCelebration',
         description: 'receptionDescription',
