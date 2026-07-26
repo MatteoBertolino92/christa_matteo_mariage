@@ -10,7 +10,7 @@ export const translations = {
     twoWorlds: 'Nous 🇨🇫 🇮🇹 🇫🇷',
     coupleDescription: 'todo',
     coupleDescription2: 'todo',
-    theItinerary: 'L\'Itinéraire',
+    theItinerary: 'Le Programme',
     weekendSchedule: 'Calendrier du Mariage',
     scheduleDescription: 'todo',
     gettingHere: 'Comment Arriver',
