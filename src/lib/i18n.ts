@@ -80,7 +80,7 @@ export const translations = {
     letterDate: '29 mai 2027 • Cherasco, Langhe, Italie',
   },
   it: {
-    eventDetails: 'Dettagli dell\'Evento',
+    //eventDetails: 'Dettagli dell\'Evento',
     travel: 'Viaggio',
     hotels: 'Hotel',
     activities: 'Attività',
