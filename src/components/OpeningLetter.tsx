@@ -12,7 +12,7 @@ export default function OpeningLetter() {
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-b from-secondary-foreground via-background to-background flex items-center justify-center overflow-hidden py-20 px-6">
+    <section className="relative w-full py-20 px-6 bg-gradient-to-b from-secondary-foreground via-background to-background flex items-center justify-center overflow-hidden">
       {/* Elegant decorative background elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/8 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-32 right-20 w-96 h-96 bg-primary/6 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
