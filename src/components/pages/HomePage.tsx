@@ -312,7 +312,7 @@ const ScheduleSection = () => {
         description: 'receptionDescription',
         date: 'receptionCelebration_date',
         location: 'receptionCelebration_location',
-        map: ''
+        map: 'https://maps.app.goo.gl/hjrQCaxpvYN14xVo8'
       },
       /*'Farewell Brunch': {
         title: 'farewellBrunch',
