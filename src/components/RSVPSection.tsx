@@ -11,7 +11,9 @@ export default function RSVPSection() {
     firstName: '',
     lastName: '',
     accompanied: 'no',
+    partnerName: '',
     numberOfChildren: '0',
+    childrenNames: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -34,7 +36,9 @@ export default function RSVPSection() {
         firstName: '',
         lastName: '',
         accompanied: 'no',
+        partnerName: '',
         numberOfChildren: '0',
+        childrenNames: '',
       });
       alert(language === 'fr' ? 'Merci pour votre réponse!' : language === 'it' ? 'Grazie per la tua risposta!' : 'Thank you for your response!');
     }, 1000);
@@ -150,6 +154,40 @@ export default function RSVPSection() {
               ))}
             </select>
           </div>
+
+          {/* Partner Name - Show if accompanied */}
+          {formData.accompanied === 'yes' && (
+            <div>
+              <label className="block font-paragraph text-sm font-bold text-foreground mb-3 uppercase tracking-wider">
+                {getTranslation('partnerName', language)}
+              </label>
+              <input
+                type="text"
+                name="partnerName"
+                value={formData.partnerName}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-primary/20 focus:border-primary outline-none font-paragraph text-secondary-foreground transition-colors"
+                placeholder={getTranslation('partnerName', language)}
+              />
+            </div>
+          )}
+
+          {/* Children Names - Show if numberOfChildren >= 1 */}
+          {parseInt(formData.numberOfChildren) >= 1 && (
+            <div>
+              <label className="block font-paragraph text-sm font-bold text-foreground mb-3 uppercase tracking-wider">
+                {getTranslation('childrenNames', language)}
+              </label>
+              <input
+                type="text"
+                name="childrenNames"
+                value={formData.childrenNames}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-primary/20 focus:border-primary outline-none font-paragraph text-secondary-foreground transition-colors"
+                placeholder={getTranslation('childrenNames', language)}
+              />
+            </div>
+          )}
 
           {/* Submit Button */}
           <div className="flex justify-center pt-8">

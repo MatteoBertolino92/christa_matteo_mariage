@@ -82,18 +82,10 @@ export default function OpeningLetter() {
 
               {/* Main content */}
               <div className="w-full h-full flex flex-col items-center justify-center p-12 relative">
-                <motion.div
-                  animate={{ opacity: isOpen ? 0 : 1 }}
-                  transition={{ duration: 0.4 }}
-                  className="text-center space-y-6"
-                >
-                  <motion.h2
-                    className="font-heading text-5xl md:text-6xl text-foreground leading-tight tracking-tight"
-                    animate={{ y: isOpen ? -20 : 0 }}
-                    transition={{ duration: 0.6 }}
-                  >
+                <div className="text-center space-y-6">
+                  <h2 className="font-heading text-5xl md:text-6xl text-foreground leading-tight tracking-tight">
                     Christa&Matteo
-                  </motion.h2>
+                  </h2>
                   <motion.p
                     className="font-paragraph text-secondary-foreground/50 text-lg tracking-widest uppercase"
                     animate={{ y: isOpen ? 20 : 0 }}
@@ -110,7 +102,7 @@ export default function OpeningLetter() {
                     <span>✦</span>
                     <span>✦</span>
                   </motion.div>
-                </motion.div>
+                </div>
 
                 {/* Click hint */}
                 <motion.p
