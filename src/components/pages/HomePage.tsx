@@ -547,7 +547,6 @@ export default function HomePage() {
       <Header />
       <main>
         <OpeningLetter />
-        <HeroSection />
         <TheCoupleSection />
         <ScheduleSection />
         <TravelSection />
