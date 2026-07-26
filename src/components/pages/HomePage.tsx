@@ -7,7 +7,7 @@ import { getTranslation } from '@/lib/i18n';
 import { useLanguageStore } from '@/lib/languageStore';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Calendar, Car, Clock, ExternalLink, Gift, MapPin, Plane } from 'lucide-react';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 // --- CANONICAL DATA TYPES (From src/entities/index.ts) ---
 interface LocalActivities {
@@ -532,6 +532,13 @@ const GiftRegistrySection = () => {
 };
 
 export default function HomePage() {
+  const { initializeFromGeolocation } = useLanguageStore();
+
+  useEffect(() => {
+    // Initialize language based on geolocation on component mount
+    initializeFromGeolocation();
+  }, [initializeFromGeolocation]);
+
   return (
     <div className="min-h-screen bg-background selection:bg-primary selection:text-primary-foreground">
       <Header />
