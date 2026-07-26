@@ -82,6 +82,7 @@ export const translations = {
     welcomeAperitivo_location: 'Lieu',
     theCeremony_date: 'Samedi 28 septembre',
     theCeremony_location: '',
+    https://share.google/o3kCWzLvHP5WtsphQ
     receptionCelebration_date: 'Samedi 14 septembre',
     receptionCelebration_location: 'Tenuta Fontanafredda',
     farewellBrunch_date: 'Dimanche 15 septembre',
