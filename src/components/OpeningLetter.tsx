@@ -190,8 +190,6 @@ export default function OpeningLetter() {
             </div>
           </motion.div>
         </motion.div>
-
-
       </div>
     </section>
   );
