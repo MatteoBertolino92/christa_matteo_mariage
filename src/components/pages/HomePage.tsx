@@ -84,14 +84,6 @@ const eventScheduleData: EventSchedule[] = [
     location: 'Tenuta Fontanafredda',
     description: 'Dinner, dancing, and endless Barolo late into the night. Bring your dancing shoes.'
   },
-  {
-    _id: 'evt-4',
-    eventName: 'Farewell Brunch',
-    eventDate: 'Sunday, September 15th',
-    eventTime: '11:00',
-    location: 'Relais San Maurizio',
-    description: 'A relaxed morning to recover and say our goodbyes before you head home or continue your Italian adventure.'
-  }
 ];
 
 const travelRoutesData: TravelRoutes[] = [
