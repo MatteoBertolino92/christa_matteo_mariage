@@ -113,26 +113,26 @@ const travelRoutesData: TravelRoutes[] = [
 const recommendedHotelsData: RecommendedHotels[] = [
   {
     _id: 'htl-1',
-    hotelName: 'Casa di Langa',
-    priceRange: '$$$$',
+    hotelName: 'Hotel1',
+    priceRange: '$$$',
     distanceToVenue: '15 mins drive',
-    description: 'A stunning sustainable luxury resort nestled in the vineyards. We have a small block of rooms reserved here under our names.',
+    description: 'todo',
     hotelImage: 'https://static.wixstatic.com/media/71f2f6_e4a20df274224d0384e31f437b18243c~mv2.png?originWidth=576&originHeight=384'
   },
   {
     _id: 'htl-2',
-    hotelName: 'Albergo dell\'Agenzia',
+    hotelName: 'Hotel2',
     priceRange: '$$$',
     distanceToVenue: '20 mins drive',
-    description: 'Located in Pollenzo, this historic neo-Gothic complex offers beautiful grounds, a pool, and is home to the University of Gastronomic Sciences.',
+    description: 'todo',
     hotelImage: 'https://static.wixstatic.com/media/71f2f6_f5daaccc039e4526a70d1cd16395b223~mv2.png?originWidth=576&originHeight=384'
   },
   {
     _id: 'htl-3',
-    hotelName: 'Uve Rooms & Wine Bar',
+    hotelName: 'Hotel3',
     priceRange: '$$',
     distanceToVenue: '10 mins drive',
-    description: 'A boutique, modern option right in the heart of La Morra. Perfect for those who want to be walking distance to local enotecas.',
+    description: 'todo',
     hotelImage: 'https://static.wixstatic.com/media/71f2f6_3c808119b8804ea7ae71a04e12d107cd~mv2.png?originWidth=576&originHeight=384'
   }
 ];
