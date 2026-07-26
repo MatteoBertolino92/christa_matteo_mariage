@@ -92,7 +92,7 @@ const travelRoutesData: TravelRoutes[] = [
     originCity: 'Paris',
     transportMode: 'Flight + Car',
     estimatedDuration: '4.5 Hours',
-    travelInstructions: 'Fly direct from CDG or ORY to Turin (TRN). From Turin airport, rent a car and drive south on the A6/A33 directly into the Langhe region (approx. 1.5 hours drive).'
+    travelInstructions: 'todo'
   },
   {
     _id: 'trv-2',
