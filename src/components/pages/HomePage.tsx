@@ -273,8 +273,8 @@ const TheCoupleSection = () => {
             >
               {/* ... keep existing code (image and decorative frame) ... */}
               <Image
-                //src="https://static.wixstatic.com/media/71f2f6_9084cbbd7d044db1908da5a12420a224~mv2.png?originWidth=576&originHeight=768"
-                src="https://media.gettyimages.com/id/1327561909/fr/photo/las-vegas-nevada-conor-mcgregor-poses-for-a-portrait-during-a-ufc-photo-session-on-july-7.jpg?s=612x612&w=gi&k=20&c=0XZrlHWaE32RoM5gUIT2__jB_GYbASetwWx7Cq1Fpuw="
+                src="https://static.wixstatic.com/media/71f2f6_9084cbbd7d044db1908da5a12420a224~mv2.png?originWidth=576&originHeight=768"
+                //src="https://media.gettyimages.com/id/1327561909/fr/photo/las-vegas-nevada-conor-mcgregor-poses-for-a-portrait-during-a-ufc-photo-session-on-july-7.jpg?s=612x612&w=gi&k=20&c=0XZrlHWaE32RoM5gUIT2__jB_GYbASetwWx7Cq1Fpuw="
                 alt="Christa and Matteo"
                 className="w-full h-full object-cover"
               />
