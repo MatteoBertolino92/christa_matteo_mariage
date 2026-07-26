@@ -292,7 +292,7 @@ const ScheduleSection = () => {
 
   // Map event names to translation keys for event-specific data
   const getEventTranslations = (eventName: string) => {
-    const eventMap: { [key: string]: { title: string; description: string; date: string; location: string } } = {
+    const eventMap: { [key: string]: { title: string; description: string; date: string; location: string, map?: string } } = {
       'Welcome Aperitivo': {
         title: 'welcomeAperitivo',
         description: 'welcomeDescription',
