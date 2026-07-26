@@ -150,7 +150,7 @@ const localActivitiesData: LocalActivities[] = [
     activityName: 'Torino',
     location: 'Torino',
     description: 'todo',
-    activityImage: 'https://static.wixstatic.com/media/71f2f6_eb397476825546859f0f3d22aba66c2a~mv2.png?originWidth=1152&originHeight=640'
+    activityImage: 'https://media.istockphoto.com/id/636399938/fr/photo/paysage-urbain-de-turin-au-lever-du-soleil.webp?s=1024x1024&w=is&k=20&c=ZXX0r8lZbitu40htDxKXk00IVpLDXD5f2zQksY_of-s='
   },
   {
     _id: 'act-3',
