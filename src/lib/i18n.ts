@@ -56,7 +56,7 @@ export const translations = {
     flightCar: 'Vol + Voiture',
     flightTrain: 'Vol + Train/Voiture',
     car: 'Voiture',
-    parisInstructions: 'Vols directs de CDG ou ORY vers Turin (TRN). De l\'aéroport de Turin, louez une voiture et conduisez vers le sud sur l\'A6/A33 directement dans la région de Langhe (environ 1,5 heures de route).',
+    parisInstructions: 'Vols directs de CDG ou ORY vers Turin (TRN). De l\'aéroport de Turin, louez une voiture et conduisez vers le sud sur l\'A6/A33 directement dans la région de Langhe (environ 1,5 heures de route), ou un train régional vers Alba',
     banguiInstructions: 'Vol de BGF à Milan Malpensa (MXP) via Paris ou Addis-Abeba. De Milan, vous pouvez louer une voiture (2,5 heures de route) ou prendre le train à grande vitesse vers Turin, puis un train régional vers Alba.',
     savonInstructions: 'L\'itinéraire le plus pittoresque. Conduisez vers le nord sur l\'autoroute A6 vers Torino, prenez la sortie pour Marene et suivez les panneaux pour Alba/Barolo. Un beau trajet à travers les collines.',
     hours: 'heures',
