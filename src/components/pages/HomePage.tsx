@@ -365,7 +365,26 @@ const ScheduleSection = () => {
                     <h3 className="font-heading text-3xl md:text-4xl mb-4 text-secondary group-hover:text-primary transition-colors">
                       {translations ? getTranslation(translations.title as keyof typeof translations, language) : event.eventName}
                     </h3>
+                    <div className="flex items-start gap-2 text-secondary/80 mb-4">
+  <MapPin size={18} className="mt-1 shrink-0 text-primary" />
 
+  <div>
+    <span className="font-paragraph text-lg block">
+      {translations ? getTranslation(translations.location as keyof typeof translations, language) : event.location}
+    </span>
+
+    {translations?.map && (
+      <a
+        href={translations.map}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-primary underline text-sm mt-2 inline-block"
+      >
+        Open Google Maps
+      </a>
+    )}
+  </div>
+</div>
                     <p className="font-paragraph text-secondary/60 leading-relaxed">
                       {translations ? getTranslation(translations.description as keyof typeof translations, language) : event.description}
                     </p>
