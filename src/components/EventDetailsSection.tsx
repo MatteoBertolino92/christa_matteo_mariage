@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+/*import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { BaseCrudService } from '@/integrations';
 import { EventSchedule } from '@/entities';
@@ -115,4 +115,4 @@ export default function EventDetailsSection() {
       </div>
     </section>
   );
-}
+}*/
