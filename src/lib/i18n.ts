@@ -81,12 +81,11 @@ export const translations = {
     welcomeAperitivo_date: 'Vendredi 28 mai',
     welcomeAperitivo_location: 'Lieu',
     theCeremony_date: 'Samedi 28 septembre',
-    theCeremony_location: '',
-    https://share.google/o3kCWzLvHP5WtsphQ
-    receptionCelebration_date: 'Samedi 14 septembre',
-    receptionCelebration_location: 'Tenuta Fontanafredda',
-    farewellBrunch_date: 'Dimanche 15 septembre',
-    farewellBrunch_location: 'Relais San Maurizio',
+    theCeremony_location: 'Santuario di Nostra Signora del Popolo, Cherasco',
+    receptionCelebration_date: 'Samedi 29 mai',
+    receptionCelebration_location: 'Cascina Marinetta',
+    farewellBrunch_date: 'Dimanche 30 mai',
+    farewellBrunch_location: 'todo',
   },
   it: {
     //eventDetails: 'Dettagli dell\'Evento',
