@@ -6,7 +6,7 @@ export const translations = {
     hotels: 'Hôtels',
     activities: 'Activités',
     giftRegistry: 'Registre de Cadeaux',
-    theCouple: 'Nous 🇮🇹 🇫🇷',
+    theCouple: 'Nous 🇨🇫 🇮🇹 🇫🇷',
     twoWorlds: 'Deux mondes, une histoire d\'amour.',
     coupleDescription: 'De notre première rencontre à ce beau moment, notre voyage a été une incroyable aventure reliant les cultures et les continents. Nous ne pouvions imaginer un endroit plus parfait que les collines ondulantes du Piémont pour réunir nos familles et nos amis.',
     coupleDescription2: 'Nous sommes tellement heureux de partager la nourriture, le vin et la magie de Langhe avec vous tous.',
