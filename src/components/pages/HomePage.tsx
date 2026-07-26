@@ -99,14 +99,14 @@ const travelRoutesData: TravelRoutes[] = [
     originCity: 'Bangui',
     transportMode: 'Flight + Train/Car',
     estimatedDuration: '14+ Hours',
-    travelInstructions: 'Fly from BGF to Milan Malpensa (MXP) via Paris or Addis Ababa. From Milan, you can rent a car (2.5 hours drive) or take the high-speed train to Turin, then a regional train to Alba.'
+    travelInstructions: 'todo'
   },
   {
     _id: 'trv-3',
     originCity: 'Savona',
     transportMode: 'Car',
     estimatedDuration: '1.5 Hours',
-    travelInstructions: 'The most scenic route. Drive north on the A6 motorway towards Torino, take the exit for Marene, and follow signs for Alba/Barolo. A beautiful drive through the hills.'
+    travelInstructions: 'todo.'
   }
 ];
 
