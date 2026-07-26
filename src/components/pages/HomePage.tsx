@@ -5,9 +5,9 @@ import RSVPSection from '@/components/RSVPSection';
 import { Image } from '@/components/ui/image';
 import { getTranslation } from '@/lib/i18n';
 import { useLanguageStore } from '@/lib/languageStore';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Calendar, Car, Clock, ExternalLink, Gift, MapPin, Plane } from 'lucide-react';
-import { useRef, useEffect } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { Calendar, Car, Clock, ExternalLink, Gift, MapPin, Plane } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 // --- CANONICAL DATA TYPES (From src/entities/index.ts) ---
 interface LocalActivities {
@@ -181,7 +181,7 @@ const giftRegistryData: GiftRegistry[] = [
 
 // --- COMPONENTS ---
 
-const HeroSection = () => {
+/*const HeroSection = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, 300]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
@@ -189,7 +189,8 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-secondary-foreground" id="home">
-      {/* Parallax Background */}
+      {// Parallax Background
+      }
       <motion.div style={{ y: y1 }} className="absolute inset-0 w-full h-[120%] -top-[10%]">
         <Image
           src="https://static.wixstatic.com/media/71f2f6_64dd71f49e6e432292f224dbdd3bb476~mv2.png?originWidth=1600&originHeight=896"
@@ -199,7 +200,8 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
       </motion.div>
 
-      {/* Main Typography - Left Aligned */}
+      {// Main Typography - Left Aligned
+      }
       <motion.div
         style={{ opacity }}
         className="absolute inset-0 max-w-[120rem] mx-auto px-6 md:px-12 lg:px-24 flex flex-col justify-center z-10"
@@ -215,7 +217,8 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      {/* The Overlapping Introduction Block (Inspired by the image) */}
+      {// The Overlapping Introduction Block (Inspired by the image)
+      }
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -228,7 +231,7 @@ const HeroSection = () => {
       </motion.div>
     </section>
   );
-};
+};*/
 
 const TheCoupleSection = () => {
   const ref = useRef(null);
