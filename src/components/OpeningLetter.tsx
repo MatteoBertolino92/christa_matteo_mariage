@@ -12,7 +12,7 @@ export default function OpeningLetter() {
   };
 
   return (
-    <section className="relative w-full py-20 px-6 bg-gradient-to-b from-secondary-foreground via-background to-background flex items-center justify-center overflow-hidden">
+    <section className="relative w-full py-8 px-6 bg-gradient-to-b from-secondary-foreground via-background to-background flex items-center justify-center overflow-hidden">
       {/* Elegant decorative background elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/8 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-32 right-20 w-96 h-96 bg-primary/6 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
@@ -21,7 +21,7 @@ export default function OpeningLetter() {
       <div className="relative z-10 w-full max-w-3xl">
         {/* 3D Perspective Container */}
         <motion.div
-          className="relative w-full h-[500px] cursor-pointer"
+          className="relative w-full h-[400px] cursor-pointer"
           onClick={handleClick}
           style={{ perspective: "1200px" }}
         >
@@ -201,7 +201,7 @@ export default function OpeningLetter() {
 
         {/* Interactive hint below */}
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-6"
           animate={{ opacity: isOpen ? 0 : 1 }}
           transition={{ duration: 0.5 }}
         >
