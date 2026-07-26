@@ -314,12 +314,12 @@ const ScheduleSection = () => {
         location: 'receptionCelebration_location',
         map: ''
       },
-      'Farewell Brunch': {
+      /*'Farewell Brunch': {
         title: 'farewellBrunch',
         description: 'brunchDescription',
         date: 'farewellBrunch_date',
         location: 'farewellBrunch_location'
-      }
+      }*/
     };
     return eventMap[eventName];
   };
