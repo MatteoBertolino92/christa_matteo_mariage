@@ -297,7 +297,8 @@ const ScheduleSection = () => {
         title: 'welcomeAperitivo',
         description: 'welcomeDescription',
         date: 'welcomeAperitivo_date',
-        location: 'welcomeAperitivo_location'
+        location: 'welcomeAperitivo_location',
+        map: ''
       },
       'The Ceremony': {
         title: 'theCeremony',
@@ -310,7 +311,8 @@ const ScheduleSection = () => {
         title: 'receptionCelebration',
         description: 'receptionDescription',
         date: 'receptionCelebration_date',
-        location: 'receptionCelebration_location'
+        location: 'receptionCelebration_location',
+        map: ''
       },
       'Farewell Brunch': {
         title: 'farewellBrunch',
