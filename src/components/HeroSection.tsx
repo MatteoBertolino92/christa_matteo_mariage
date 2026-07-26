@@ -1,4 +1,4 @@
-import { Image } from '@/components/ui/image';
+/*import { Image } from '@/components/ui/image';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
@@ -62,3 +62,4 @@ export default function HeroSection() {
     </section>
   );
 }
+*/
