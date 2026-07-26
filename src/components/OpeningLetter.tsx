@@ -1,7 +1,7 @@
+import { getTranslation } from '@/lib/i18n';
+import { useLanguageStore } from '@/lib/languageStore';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { useLanguageStore } from '@/lib/languageStore';
-import { getTranslation } from '@/lib/i18n';
 
 export default function OpeningLetter() {
   const [isOpen, setIsOpen] = useState(false);
@@ -191,20 +191,7 @@ export default function OpeningLetter() {
           </motion.div>
         </motion.div>
 
-        {/* Interactive hint below */}
-        <motion.div
-          className="text-center mt-6"
-          animate={{ opacity: isOpen ? 0 : 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.p
-            className="font-paragraph text-sm text-secondary-foreground/50 tracking-widest uppercase"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            ✦ {language === 'en' ? 'Click to open' : language === 'it' ? 'Clicca per aprire' : 'Clique pour ouvrir'} ✦
-          </motion.p>
-        </motion.div>
+
       </div>
     </section>
   );
