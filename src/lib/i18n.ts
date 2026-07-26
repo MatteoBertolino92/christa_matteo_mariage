@@ -1,7 +1,7 @@
 // French translations
 export const translations = {
   fr: {
-    eventDetails: 'Détails de l\'Événement',
+    //eventDetails: 'Détails de l\'Événement',
     travel: 'Voyage',
     hotels: 'Hôtels',
     activities: 'Activités',
@@ -159,7 +159,7 @@ export const translations = {
     letterDate: '29 maggio 2027 • Cherasco, Langhe, Italia',
   },
   en: {
-    eventDetails: 'Event Details',
+    //eventDetails: 'Event Details',
     travel: 'Travel',
     hotels: 'Hotels',
     activities: 'Activities',
