@@ -41,7 +41,7 @@ export const translations = {
     truffleDescription: 'TODO',
     ebikeTour: 'TODO',
     ebikeTourDescription: 'TODO',
-    honeymoon: 'Notre Lune de Miel Australienne',
+    honeymoon: 'Notre Lune de Miel australienne 🇦🇺 🐨 🪃 🌏',
     honeymoonDescription: 'Votre présence à notre mariage est le plus grand cadeau de tous. Cependant, si vous souhaitez nous honorer d\'un cadeau, une contribution à notre lune de miel de rêve en Australie serait chaleureusement appréciée.',
     contributionInstructions: 'Les contributions peuvent être effectuées de manière sécurisée via le lien ci-dessous, ou une tirelire sera disponible à la réception.',
     casaDiLanga: 'Hotel1',
