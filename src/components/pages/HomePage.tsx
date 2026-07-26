@@ -344,7 +344,13 @@ const ScheduleSection = () => {
         {/* Scrolling Right Column */}
         <div className="lg:w-2/3 flex flex-col">
           {eventScheduleData.map((event, index) => {
-            const translations = getEventTranslations(event.eventName || '');
+            const translations = getEventTranslations(event.eventName || '') as {
+                title: string;
+                description: string;
+                date: string;
+                location: string;
+                map?: string;
+            } | undefined;
             return (
               <div key={event._id} className="group relative border-t border-secondary/20 py-12 first:pt-0">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
