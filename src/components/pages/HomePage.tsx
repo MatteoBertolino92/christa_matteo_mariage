@@ -273,7 +273,7 @@ const TheCoupleSection = () => {
             >
               {/* ... keep existing code (image and decorative frame) ... */}
               <Image
-                src="https://raw.githubusercontent.com/MatteoBertolino92/christa_matteo_mariage/refs/heads/main/public/mariage_1.jpg?token=GHSAT0AAAAAAED3ZSYKELBLM6QVSQALHKZE2TGKMPA"
+                src="/mariage_1.jpg"
                 alt="Christa and Matteo"
                 className="w-full h-full object-cover"
               />
