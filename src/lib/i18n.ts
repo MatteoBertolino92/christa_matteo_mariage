@@ -167,7 +167,7 @@ export const translations = {
     letterDate: '29 maggio 2027 • Cherasco, Langhe, Italia',
     welcomeAperitivo_date: 'Venerdì 13 settembre',
     welcomeAperitivo_location: 'Cantina Comunale di La Morra',
-    theCeremony_date: 'Sabato 14 settembre',
+    theCeremony_date: 'Sabato 30 maggio 2027',
     theCeremony_location: 'Castello di Grinzane Cavour',
     receptionCelebration_date: 'Sabato 14 settembre',
     receptionCelebration_location: 'Tenuta Fontanafredda',
