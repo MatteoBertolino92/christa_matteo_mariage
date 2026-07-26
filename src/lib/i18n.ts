@@ -255,11 +255,11 @@ export const translations = {
     welcomeAperitivo_date: 'Friday, September 13th',
     welcomeAperitivo_location: 'Cantina Comunale di La Morra',
     theCeremony_date: 'Saturday, September 14th',
-    theCeremony_location: 'Castello di Grinzane Cavour',
-    receptionCelebration_date: 'Saturday, September 14th',
-    receptionCelebration_location: 'Tenuta Fontanafredda',
-    farewellBrunch_date: 'Sunday, September 15th',
-    farewellBrunch_location: 'Relais San Maurizio',
+    theCeremony_location: '',
+    receptionCelebration_date: 'Saturday, Mai 30th',
+    receptionCelebration_location: 'Cascina Marinetta',
+    //farewellBrunch_date: 'Sunday, September 15th',
+    //farewellBrunch_location: 'Relais San Maurizio',
   },
 };
 
