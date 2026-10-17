@@ -134,7 +134,7 @@
         .hero {
             display: flex;
             min-height: 100vh;
-            padding-top: 70px; /* Offset for fixed nav */
+            padding-top: 70px;
         }
 
         .hero-text {
@@ -216,10 +216,9 @@
             gap: 40px;
         }
 
-        /* UPDATED EVENT LAYOUT FOR IMAGES */
         .event {
             display: grid;
-            grid-template-columns: 250px auto 1fr; /* Date column, Image column, Text column */
+            grid-template-columns: 250px auto 1fr;
             gap: 40px;
             border-bottom: 1px solid #333;
             padding-bottom: 40px;
@@ -235,12 +234,11 @@
             margin-bottom: 8px;
         }
 
-        /* NEW STYLE FOR EVENT IMAGES */
         .event-img {
             width: 150px;
             height: 170px;
             object-fit: cover;
-            border-radius: 8px; /* Slight rounding for elegance */
+            border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
@@ -296,13 +294,12 @@
             margin-bottom: 30px;
         }
 
-        /* NEW STYLE FOR MULTIPLE ICONS */
         .card-icons {
             position: absolute;
             top: 40px;
             right: 40px;
             display: flex;
-            gap: 10px; /* Space between icons */
+            gap: 10px;
             color: var(--lavender);
             font-size: 1.5rem;
         }
@@ -345,7 +342,6 @@
             margin-bottom: 5px;
         }
         
-        /* Link styling for hotels */
         .hotel-card h3 a {
             color: var(--yellow);
             text-decoration: none;
@@ -375,136 +371,68 @@
             margin-bottom: 15px;
         }
 
-        /* --- EXPLORE (SPLIT LAYOUT) --- */
+        /* --- EXPLORE (NEW COMPACT CARD LAYOUT) --- */
         .explore {
             background-color: #ffffff;
-            padding: 0; 
+            padding: 100px 0;
         }
         
         .explore-header {
             text-align: center;
-            padding: 100px 20px 50px 20px;
+            margin-bottom: 60px;
         }
 
-        .explore-split {
-            display: flex;
-            min-height: 60vh;
-            border-top: 1px solid #f0f0f0;
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        .explore-split.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .explore-text {
-            flex: 1;
+        .explore-card {
+            background: #FAFAFA;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            padding: 50px 10%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .explore-location {
-            color: var(--lavender);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .explore-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .explore-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #e0e0e0; /* Fallback color if image fails to load */
+        }
+
+        .explore-card h3 {
+            font-size: 1.5rem;
+            color: var(--yellow);
             margin-bottom: 15px;
-            font-weight: 600;
+            border-bottom: 1px solid var(--lavender);
+            padding-bottom: 10px;
         }
 
-        .explore-text h3 {
-            font-size: 3rem;
-            color: var(--yellow);
-            margin-bottom: 20px;
-        }
-
-        .explore-text p {
+        .explore-card p {
             color: var(--text-muted);
-            margin-bottom: 30px;
-            max-width: 400px;
-        }
-
-        .btn-link {
-            color: var(--yellow);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--yellow);
-            padding-bottom: 5px;
-            align-self: flex-start;
-            transition: color 0.3s, border-color 0.3s;
-        }
-
-        .btn-link:hover {
-            color: var(--yellow-hover);
-            border-color: var(--yellow-hover);
-            opacity: 1;
-        }
-
-        .explore-image {
-            flex: 1;
-            background-color: #e0e0e0;
-            background-size: cover;
-            background-position: center;
-            min-height: 400px;
-        }
-
-        /* --- REGISTRY (LAVENDER SECTION) --- */
-        .registry {
-            background-color: var(--lavender);
-            color: white;
-            text-align: center;
-        }
-
-        .registry h2 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .registry p {
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            font-size: 1.1rem;
-        }
-
-        .registry-box {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 50px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background: white;
-            color: var(--lavender);
-            padding: 15px 30px;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            margin-top: 20px;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .btn:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
-            opacity: 1;
+            font-size: 0.95rem;
+            flex-grow: 1;
         }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero, .explore-split, .explore-split.reverse { flex-direction: column; }
-            .hero-image, .explore-image { min-height: 40vh; }
+            .hero { flex-direction: column; }
+            .hero-image { min-height: 40vh; }
             .hero-title { font-size: 3.5rem; }
             
-            /* Mobile layout for events: Stack everything */
             .event { 
                 grid-template-columns: 1fr; 
                 gap: 20px; 
@@ -514,8 +442,7 @@
                 height: 200px;
             }
             
-            .section-header h2, .registry h2 { font-size: 2.5rem; }
-            .explore-text h3 { font-size: 2.5rem; }
+            .section-header h2 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -532,7 +459,6 @@
                 <a href="#hotels" data-lang="nav_hotel">Hôtels</a>
                 <a href="#explore" data-lang="nav_explore">Découvrir</a>
             </div>
-            <!-- LANGUAGE LINKS -->
             <div class="lang-switch">
                 <a href="#fr" class="lang-btn active" id="btn-fr" title="Français">🇫🇷</a>
                 <a href="#it" class="lang-btn" id="btn-it" title="Italiano">🇮🇹</a>
@@ -585,7 +511,7 @@
                 <div class="event">
                     <div class="event-meta">
                         <div><i class="fa-regular fa-calendar"></i> <span data-lang="ev2_date">Samedi 29 mai 2027</span></div>
-                        <div><i class="fa-regular fa-clock"></i> 15:3O</div>
+                        <div><i class="fa-regular fa-clock"></i> 15:30</div>
                     </div>
                     <div class="event-details">
                         <h3 class="event-title" data-lang="ev2_title">L'église</h3>
@@ -599,7 +525,7 @@
 					<img src="https://raw.githubusercontent.com/MatteoBertolino92/christa_matteo_mariage/refs/heads/main/public/santuario.jpg" alt="Placeholder" class="event-img">
                 </div>
 
-                <!-- Event 2 -->
+                <!-- Event 2B -->
                 <div class="event">
                     <div class="event-meta">
                         <div><i class="fa-regular fa-calendar"></i> <span data-lang="ev2_date">Samedi 29 mai 2027</span></div>
@@ -738,45 +664,58 @@
         </div>
     </section>
 
-    <!-- EXPLORE SECTION -->
+    <!-- EXPLORE SECTION (NEW COMPACT GRID WITH IMAGES) -->
     <section id="explore" class="explore">
-        <div class="explore-header">
-            <div class="section-tag" data-lang="explore_tag">05 // EXPLORER</div>
-            <h2 style="font-size: 3.5rem; color: var(--yellow);" data-lang="explore_title">Prolongez votre voyage</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto 0 auto;" data-lang="explore_desc">Si vous souhaitez profiter de votre venue en Italie pour explorer la région, voici quelques-unes de nos recommandations.</p>
-        </div>
-
-        <!-- Langhe -->
-        <div class="explore-split">
-            <div class="explore-text">
-                <div class="explore-location"><i class="fa-solid fa-location-dot"></i> <span data-lang="exp1_loc">Les Langhe</span></div>
-                <h3 data-lang="exp1_title">Dégustation de Barolo</h3>
-                <p data-lang="exp1_desc">todo</p>
-                <a href="#" class="btn-link" data-lang="exp_btn">En savoir plus</a>
+        <div class="container">
+            <div class="explore-header">
+                <div class="section-tag" data-lang="explore_tag">05 // EXPLORER</div>
+                <h2 style="font-size: 3.5rem; color: var(--yellow);" data-lang="explore_title">Prolongez votre voyage</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto 0 auto;" data-lang="explore_desc">Si vous souhaitez profiter de votre venue en Italie pour explorer la région, voici quelques-unes de nos recommandations.</p>
             </div>
-            <div class="explore-image" style="background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1000');"></div>
-        </div>
 
-        <!-- Turin -->
-        <div class="explore-split reverse">
-            <div class="explore-text">
-                <div class="explore-location"><i class="fa-solid fa-location-dot"></i> <span data-lang="exp2_loc">Turin</span></div>
-                <h3 data-lang="exp2_title">Turin</h3>
-                <p data-lang="exp2_desc">todo</p>
-                <a href="#" class="btn-link" data-lang="exp_btn">En savoir plus</a>
-            </div>
-            <div class="explore-image" style="background-image: url('https://images.unsplash.com/photo-1572366933033-118ce4e7580c?auto=format&fit=crop&q=80&w=1000');"></div>
-        </div>
+            <div class="explore-grid">
+                <!-- Langhe -->
+                <div class="explore-card">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=400" alt="Langhe">
+                    <h3 data-lang="exp1_title">Les Langhe</h3>
+                    <p data-lang="exp1_desc">Villes recommandées : Bra, Alba. Recommandé si vous aimez les vins.</p>
+                </div>
 
-        <!-- Liguria -->
-        <div class="explore-split">
-            <div class="explore-text">
-                <div class="explore-location"><i class="fa-solid fa-location-dot"></i> <span data-lang="exp3_loc">Ligurie</span></div>
-                <h3 data-lang="exp3_title">La Côte Ligure</h3>
-                <p data-lang="exp3_desc">todo</p>
-                <a href="#" class="btn-link" data-lang="exp_btn">En savoir plus</a>
+                <!-- Turin -->
+                <div class="explore-card">
+                    <img src="https://images.unsplash.com/photo-1572366933033-118ce4e7580c?auto=format&fit=crop&q=80&w=400" alt="Turin">
+                    <h3 data-lang="exp2_title">Turin</h3>
+                    <p data-lang="exp2_desc">L'ancienne capitale d'Italie. Quartiers recommandés : Centro, San Salvario, Crocetta.</p>
+                </div>
+
+                <!-- Liguria -->
+                <div class="explore-card">
+                    <img src="https://images.unsplash.com/photo-1516483638261-f4085ee6b3f2?auto=format&fit=crop&q=80&w=400" alt="Ligurie">
+                    <h3 data-lang="exp3_title">La Côte Ligure</h3>
+                    <p data-lang="exp3_desc">Découvrez les villages colorés et les plages de la mer Méditerranée.</p>
+                </div>
+
+                <!-- Lakes -->
+                <div class="explore-card">
+                    <img src="https://images.unsplash.com/photo-1533676802871-eca1ae998cd5?auto=format&fit=crop&q=80&w=400" alt="Lacs">
+                    <h3 data-lang="exp4_title">Les Lacs</h3>
+                    <p data-lang="exp4_desc">Lac de Côme (à 2h), Sirmione sur le lac de Garde (à 2h).</p>
+                </div>
+
+                <!-- Firenze/Siena -->
+                <div class="explore-card">
+                    <img src="https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&q=80&w=400" alt="Florence">
+                    <h3 data-lang="exp5_title">Florence et Sienne</h3>
+                    <p data-lang="exp5_desc">Les joyaux de la Toscane, à environ 4h de route.</p>
+                </div>
+
+                <!-- Nouveau Conseil (6ème carte) -->
+                <div class="explore-card">
+                    <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=400" alt="Conseil">
+                    <h3 data-lang="exp6_title">Le Conseil du Coin</h3>
+                    <p data-lang="exp6_desc">L'Italie est magnifique mais les trains régionaux sont souvent bondés le week-end. Si vous voyagez en voiture, n'oubliez pas de valider votre ticket de parking (parcometro) chez les bars-tabac (Tabacchi) !</p>
+                </div>
             </div>
-            <div class="explore-image" style="background-image: url('https://images.unsplash.com/photo-1516483638261-f4085ee6b3f2?auto=format&fit=crop&q=80&w=1000');"></div>
         </div>
     </section>
 
@@ -790,7 +729,7 @@
                 prog_tag: "02 // LE PROGRAMME", prog_title: "Calendrier du mariage",
                 ev1_date: "Vendredi 28 mai 2027", ev1_title: "Spritz de Bienvenue", ev1_loc: "Lieu à définir", ev1_desc: "Rejoignez-nous pour lancer le week-end avec des vins locaux, des spritz et des vues à couper le souffle sur les collines des Langhe.",
                 ev2_date: "Samedi 29 mai 2027", ev2_title: "La Cérémonie à l'église", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2_desc: "<em><strong>«Ainsi, ils ne sont plus deux, mais une seule chair. Donc, ce que Dieu a uni, que l'homme ne le sépare pas !»</strong></em> (Matthieu 19:6)",
-				ev2b_date: "Samedi 29 mai 2027", ev2b_title: "Séance photo avec nos invités", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2b_desc: "Séance photo avec nos invités devant l'église, au centre ville, et ensuite sur le lieu de réception",
+				ev2b_date: "Samedi 29 mai 2027", ev2b_title: "Séance photo avec nos invités", ev2b_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2b_desc: "Séance photo avec nos invités devant l'église, au centre ville, et ensuite sur le lieu de réception",
 				ev3_date: "Samedi 29 mai 2027", ev3_title: "Cocktail et diner", ev3_loc: "Corte Marinetta, Cherasco", ev3_desc: "La fête se déroulera dans le fabuleux lieu de réception <em><strong>Corte Marinetta</em></strong>, situé à seulement 5 minutes de voiture de l'église. Au programme : un riche cocktail, des spécialitées italiennes au menu et un open bar. Parking surveillé.",
 				ev4_date: "Samedi 29 mai 2027", ev4_title: "Alors on danse!", ev4_loc: "Corte Marinetta, Cherasco", ev4_desc: "Place à la soirée dansante à la Corte Marinetta ! Profitez de l'open bar, de musique afro et italienne pour danser jusqu'au bout de la nuit.",
                 travel_tag: "03 // COMMENT ARRIVER", travel_title: "Tous les Chemins Mènent à Cherasco", travel_desc: "Si vous venez de l'étranger, nous vous conseillons d'arriver à l'aéroport de <strong style='color:#B49CDB;'>Turin</strong> ou de <strong style='color:#B49CDB;'>Gênes</strong>. <br><br><em>Une voiture est toutefois recommandée.</em>",
@@ -805,58 +744,69 @@
                 hotel_tag: "04 // HÉBERGEMENT", hotel_title: "Où Séjourner", hotel_desc: "On va sélectionné une liste des hôtels à vous conseiller: soyez patients, on va les publier bientôt!",
                 hotel_dist: "mins en voiture",
                 explore_tag: "05 // EXPLORER", explore_title: "Prolongez votre voyage", explore_desc: "Si vous souhaitez profiter de votre venue en Italie pour explorer la région, voici quelques-unes de nos recommandations.",
-                exp1_loc: "Les Langhe", exp1_title: "Dégustation de Barolo", exp1_desc: "todo", exp_btn: "En savoir plus",
-                exp2_loc: "Turin", exp2_title: "Turin", exp2_desc: "todo",
-                exp3_loc: "Ligurie", exp3_title: "La Côte Ligure", exp3_desc: "todo",
+                exp1_title: "Les Langhe", exp1_desc: "Villes recommandées : Bra, Alba. Recommandé si vous aimez les vins.",
+                exp2_title: "Turin", exp2_desc: "L'ancienne capitale d'Italie. Quartiers recommandés : Centro, San Salvario, Crocetta.",
+                exp3_title: "La Côte Ligure", exp3_desc: "Découvrez les villages colorés et les plages de la mer Méditerranée.",
+                exp4_title: "Les Lacs", exp4_desc: "Lac de Côme (à 2h), Sirmione sur le lac de Garde (à 2h).",
+                exp5_title: "Florence et Sienne", exp5_desc: "Les joyaux de la Toscane, à environ 4h de route.",
+                exp6_title: "Le Conseil du Coin", exp6_desc: "L'Italie est magnifique mais les trains régionaux sont souvent bondés le week-end. Si vous voyagez en voiture, n'oubliez pas de valider votre ticket de parking (parcometro) chez les bars-tabac (Tabacchi) !"
             },
             it: {
-                nav_home: "Home", nav_prog: "Programma", nav_travel: "Viaggio", nav_hotel: "Hotel", nav_explore: "Esplora",
-                hero_tag: "01 // IL NOSTRO MATRIMONIO", hero_title: "Da Bangui a Parigi, un amore in Italia 🇨🇫 🇮🇹 🇫🇷", hero_date: "29 Maggio 2027 - Cherasco, Italia", hero_todo: "Abbiamo scelto di dirci 'sì' davanti a Dio nel cuore dell'Italia, circondati dalle persone a noi più care. Unisciti a noi a Cherasco per condividere questi momenti indimenticabili, tra risate, buon cibo e festeggiamenti.",
-                prog_tag: "02 // IL PROGRAMMA", prog_title: "Calendario del matrimonio",
-                ev1_date: "Venerdì 28 maggio 2027", ev1_title: "Spritz di Benvenuto", ev1_loc: "Luogo da definire", ev1_desc: "Unisciti a noi per iniziare il weekend con vini locali, spritz e viste mozzafiato sulle colline delle Langhe.",
-                ev2_date: "Sabato 29 maggio 2027", ev2_title: "La Cerimonia in chiesa", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2_desc: "Ci scambiamo i voti nella bellissima chiesa di Cherasco. Vi preghiamo di arrivare in orario. Parcheggio facile.",
-				ev3_date: "Sabato 29 maggio 2027", ev3_title: "Ricevimento e cena", ev3_loc: "Corte Marinetta, Cherasco", ev3_desc: "La festa si svolgerà nella favolosa location della Corte Marinetta, situata a soli 5 minuti di auto dalla chiesa. In programma: un ricco aperitivo, un ottimo menù italiano e open bar. Parcheggio sorvegliato.",
+				nav_home: "Home", nav_prog: "Programma", nav_travel: "Viaggio", nav_hotel: "Hotel", nav_explore: "Esplora",
+				hero_tag: "01 // IL NOSTRO MATRIMONIO", hero_title: "\"Uniti dall'amore, guidati dalle nostre culture.\"", hero_date: "29 Maggio 2027 - Cherasco, Italia", hero_todo: "Abbiamo scelto di dirci 'sì' davanti a Dio nel cuore dell'Italia, circondati dalle persone a noi più care. Unisciti a noi a Cherasco per condividere questi momenti indimenticabili, tra risate, buon cibo e festeggiamenti.",
+				prog_tag: "02 // IL PROGRAMMA", prog_title: "Calendario del matrimonio",
+				ev1_date: "Venerdì 28 maggio 2027", ev1_title: "Spritz di Benvenuto", ev1_loc: "Luogo da definire", ev1_desc: "Unisciti a noi per iniziare il weekend con vini locali, spritz e viste mozzafiato sulle colline delle Langhe.",
+				ev2_date: "Sabato 29 maggio 2027", ev2_title: "La Cerimonia in chiesa", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2_desc: "<em><strong>«Così non sono più due, ma una sola carne. Dunque, ciò che Dio ha unito, l'uomo non lo separi!»</strong></em> (Matteo 19:6)",
+				ev2b_date: "Sabato 29 maggio 2027", ev2b_title: "Servizio fotografico con i nostri invitati", ev2b_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2b_desc: "Servizio fotografico con i nostri invitati davanti alla chiesa, in centro città, e poi presso la location del ricevimento.",
+				ev3_date: "Sabato 29 maggio 2027", ev3_title: "Cocktail e cena", ev3_loc: "Corte Marinetta, Cherasco", ev3_desc: "La festa si svolgerà nella favolosa location <em><strong>Corte Marinetta</em></strong>, situata a soli 5 minuti di auto dalla chiesa. In programma: un ricco cocktail, specialità italiane al menu e open bar. Parcheggio sorvegliato.",
 				ev4_date: "Sabato 29 maggio 2027", ev4_title: "E ora si balla!", ev4_loc: "Corte Marinetta, Cherasco", ev4_desc: "Spazio alla serata danzante alla Corte Marinetta! Approfittate dell'open bar e della musica afro e italiana per ballare fino a notte fonda.",
-                travel_tag: "03 // COME ARRIVARE", travel_title: "Tutte le strade portano a Cherasco", travel_desc: "Se venite dall'estero, vi consigliamo di arrivare all'aeroporto di <strong style='color:#B49CDB;'>Torino</strong> o <strong style='color:#B49CDB;'>Genova</strong>. <br><br><em>Si consiglia comunque l'uso dell'auto.</em>",
-                avion_title: "Aereo", train_title: "Treno", voiture_title: "Auto",
-                avion_howto: "<p style='margin-bottom: 15px;'>Ecco le migliori opzioni da Parigi:</p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Parigi CDG &rarr; Torino con Air France</strong><br>Venerdì 28 maggio alle 8:15<br>Sabato 29 maggio alle 8:15</li><li><strong>Parigi Orly &rarr; Genova con Volotea</strong><br>Venerdì 28 maggio alle 8:30 <em style='font-size: 0.9em; color: var(--lavender);'>(spesso l'opzione più economica)</em></li></ul><p style='margin-bottom: 0;'><strong>Una volta arrivati:</strong> si consiglia il noleggio di un'auto. In alternativa, consultare la sezione treno (tappe 2 e 3)</p>",
-                avion_mode: "Volo + Auto/Treno", avion_time: "3 Ore",
+				travel_tag: "03 // COME ARRIVARE", travel_title: "Tutte le strade portano a Cherasco", travel_desc: "Se venite dall'estero, vi consigliamo di arrivare all'aeroporto di <strong style='color:#B49CDB;'>Torino</strong> o <strong style='color:#B49CDB;'>Genova</strong>. <br><br><em>Si consiglia comunque l'uso dell'auto.</em>",
+				avion_title: "Aereo", train_title: "Treno", voiture_title: "Auto",
+				avion_howto: "<p style='margin-bottom: 15px;'>Ecco le migliori opzioni da Parigi:</p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Parigi CDG &rarr; Torino con Air France</strong><br>Venerdì 28 maggio alle 8:15<br>Sabato 29 maggio alle 8:15</li><li><strong>Parigi Orly &rarr; Genova con Volotea</strong><br>Venerdì 28 maggio alle 8:30 <em style='font-size: 0.9em; color: var(--lavender);'>(spesso l'opzione più economica)</em></li></ul><p style='margin-bottom: 0;'><strong>Una volta arrivati:</strong> si consiglia il noleggio di un'auto. In alternativa, consultare la sezione treno (tappe 2 e 3)</p>",
+				avion_mode: "Volo + Auto/Treno", avion_time: "3 Ore",
 				train_howto: "<p style='margin-bottom: 15px;'>Ci sono tre tappe:</p><ol style='padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Parigi Gare de Lyon &rarr;<br> Torino Porta Susa</strong> (durata 5h50)<ul style='list-style-type: disc; padding-left: 20px; margin-top: 10px;'><li style='margin-bottom: 5px;'><strong style='color: var(--yellow);'>Con TGV:</strong> venerdì 28 alle 6:45</li><li><strong style='color: var(--yellow);'>O con Frecciarossa:</strong> <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>biglietti qui</a> (non ancora disponibili).</li></ul></li><li style='margin-bottom: 15px;'><strong>Torino Porta Susa &rarr; Alba</strong>: diversi treni, <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>biglietti qui</a> o da acquistare in loco (costo 7,10€, durata 1h20)</li><li><strong>Alba &rarr; Cherasco:</strong> 10 minuti in auto. Qualcuno verrà a prendervi.</li></ol>",
-                train_mode: "Due treni", train_time: "~7.30 Ore",
+				train_mode: "Due treni", train_time: "~7.30 Ore",
 				voiture_howto: "<p style='margin-bottom: 15px;'>Questa è l'opzione più flessibile e consigliata. Consigliamo l'itinerario che passa per <strong>Lione</strong> e non quello che passa per la Svizzera.</p><p style='margin-bottom: 15px;'>Al <strong>Tunnel del Fréjus</strong>, potete acquistare un biglietto andata e ritorno se soggiornate meno di 7 giorni in Italia.</p><p style='margin-bottom: 10px;'><strong style='color: var(--yellow);'>Costo ANDATA/RITORNO:</strong></p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 0;'><li style='margin-bottom: 5px;'><strong>Pedaggi:</strong> 239€ incluso il Tunnel del Fréjus</li><li> <strong>Carburante:</strong> ~250€</li></ul>",
-                voiture_mode: "Auto", voiture_time: "~9h00",
-                travel_mode: "Mezzo", travel_time: "Durata totale",
-                hotel_tag: "04 // ALLOGGIO", hotel_title: "Dove Soggiornare", hotel_desc: "Abbiamo selezionato un elenco dei nostri hotel e locande locali preferiti per garantire che il tuo soggiorno sia comodo e bello.",
-                hotel_dist: "minuti di auto",
-                explore_tag: "05 // ESPLORA", explore_title: "Prolunga il tuo viaggio", explore_desc: "Se desideri approfittare della tua visita in Italia per esplorare la regione, ecco alcuni dei nostri consigli.",
-                exp1_loc: "Le Langhe", exp1_title: "Degustazione di Barolo", exp1_desc: "todo", exp_btn: "Scopri di più",
-                exp2_loc: "Torino", exp2_title: "Torino", exp2_desc: "todo",
-                exp3_loc: "Liguria", exp3_title: "La Costa Ligure", exp3_desc: "todo",
-            },
+				voiture_mode: "Auto", voiture_time: "~9h00",
+				travel_mode: "Mezzo", travel_time: "Durata totale",
+				hotel_tag: "04 // ALLOGGIO", hotel_title: "Dove Soggiornare", hotel_desc: "Abbiamo selezionato un elenco dei nostri hotel e locande locali preferiti per garantire che il tuo soggiorno sia comodo e bello.",
+				hotel_dist: "minuti di auto",
+				explore_tag: "05 // ESPLORA", explore_title: "Prolunga il tuo viaggio", explore_desc: "Se desideri approfittare della tua visita in Italia per esplorare la regione, ecco alcuni dei nostri consigli.",
+				exp1_title: "Le Langhe", exp1_desc: "Città consigliate: Bra, Alba. Consigliato se ami i vini.",
+				exp2_title: "Torino", exp2_desc: "L'antica capitale d'Italia. Quartieri consigliati: Centro, San Salvario, Crocetta.",
+				exp3_title: "La Costa Ligure", exp3_desc: "Scopri i borghi colorati e le spiagge del Mar Mediterraneo.",
+				exp4_title: "I Laghi", exp4_desc: "Lago di Como (a 2h), Sirmione sul Lago di Garda (a 2h).",
+				exp5_title: "Firenze e Siena", exp5_desc: "I gioielli della Toscana, a circa 4h di macchina.",
+				exp6_title: "Il Consiglio del Posto", exp6_desc: "L'Italia è meravigliosa ma i treni regionali sono spesso affollati nel fine settimana. Se viaggiate in auto, non dimenticate di convalidare il biglietto del parcheggio (parcometro) nei bar-tabacchi (Tabacchi)!"
+			},
             en: {
-                nav_home: "Home", nav_prog: "Schedule", nav_travel: "Travel", nav_hotel: "Hotels", nav_explore: "Explore",
-                hero_tag: "01 // OUR WEDDING", hero_title: "From Bangui to Paris, a love story in Italy 🇨🇫 🇮🇹 🇫🇷", hero_date: "May 29, 2027 - Cherasco, Italy", hero_todo: "We have chosen to say 'yes' to each other in the heart of Italy, surrounded by the people we love most. Join us in Cherasco to share these unforgettable moments, filled with laughter, good food, and celebrations.",
-                prog_tag: "02 // THE SCHEDULE", prog_title: "Wedding Calendar",
-                ev1_date: "Friday, May 28, 2027", ev1_title: "Welcome Spritz", ev1_loc: "Location TBD", ev1_desc: "Join us to kick off the weekend with local wines, spritzes, and breathtaking views over the Langhe hills.",
-                ev2_date: "Saturday, May 29, 2027", ev2_title: "The Church Ceremony", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2_desc: "We exchange our vows in the beautiful church of Cherasco. Please arrive on time. Easy parking.",
-                ev3_date: "Saturday, May 29, 2027", ev3_title: "Cocktail and Dinner", ev3_loc: "Corte Marinetta, Cherasco", ev3_desc: "The party will take place at the fabulous Corte Marinetta venue, located just a 5-minute drive from the church. On the agenda: a rich aperitif, an excellent Italian menu, and an open bar. Secured parking.",
-                ev4_date: "Saturday, May 29, 2027", ev4_title: "Let's Dance!", ev4_loc: "Corte Marinetta, Cherasco", ev4_desc: "Time to dance the night away at Corte Marinetta! Enjoy the open bar and a mix of Afro and Italian music to dance until the end of the night.",
-                travel_tag: "03 // HOW TO GET THERE", travel_title: "All Roads Lead to Cherasco", travel_desc: "If you are coming from abroad, we recommend arriving at <strong style='color:#B49CDB;'>Turin</strong> or <strong style='color:#B49CDB;'>Genoa</strong> airport. <br><br><em>A car is highly recommended.</em>",
-                avion_title: "Plane", train_title: "Train", voiture_title: "Car",
-                avion_howto: "<p style='margin-bottom: 15px;'>Here are the best options from Paris:</p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Paris CDG &rarr; Turin with Air France</strong><br>Friday, May 28 at 8:15 AM<br>Saturday, May 29 at 8:15 AM</li><li><strong>Paris Orly &rarr; Genoa with Volotea</strong><br>Friday, May 28 at 8:30 AM <em style='font-size: 0.9em; color: var(--lavender);'>(often the cheapest option)</em></li></ul><p style='margin-bottom: 0;'><strong>Once there:</strong> renting a car is recommended. Otherwise, see the train section (steps 2 and 3)</p>",
-                avion_mode: "Flight + Car/Train", avion_time: "3 Hours",
-                train_howto: "<p style='margin-bottom: 15px;'>There are three steps:</p><ol style='padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Paris Gare de Lyon &rarr;<br> Torino Porta Susa</strong> (duration 5h50)<ul style='list-style-type: disc; padding-left: 20px; margin-top: 10px;'><li style='margin-bottom: 5px;'><strong style='color: var(--yellow);'>With TGV:</strong> Friday, May 28 at 6:45 AM</li><li><strong style='color: var(--yellow);'>Or with Frecciarossa:</strong> <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>tickets here</a> (not yet available).</li></ul></li><li style='margin-bottom: 15px;'><strong>Torino Porta Susa &rarr; Alba</strong>: several trains, <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>tickets here</a> or buy on site (cost €7.10, duration 1h20)</li><li><strong>Alba &rarr; Cherasco:</strong> 10 min by car. Someone will pick you up.</li></ol>",
-                train_mode: "Two trains", train_time: "~7.30 Hours",
-                voiture_howto: "<p style='margin-bottom: 15px;'>This is the most flexible and recommended option. We recommend the route through <strong>Lyon</strong> rather than the one through Switzerland.</p><p style='margin-bottom: 15px;'>At the <strong>Fréjus Tunnel</strong>, you can buy a return ticket if you are staying less than 7 days in Italy.</p><p style='margin-bottom: 10px;'><strong style='color: var(--yellow);'>Estimated ROUND-TRIP cost:</strong></p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 0;'><li style='margin-bottom: 5px;'><strong>Tolls:</strong> €239 incl. Fréjus Tunnel</li><li> <strong>Fuel:</strong> ~€250</li></ul>",
-                voiture_mode: "Car", voiture_time: "~9h00",
-                travel_mode: "Mode", travel_time: "Total duration",
-                hotel_tag: "04 // ACCOMMODATION", hotel_title: "Where to Stay", hotel_desc: "We have selected a list of our favorite local hotels and inns to ensure your stay is as comfortable as it is beautiful.",
-                hotel_dist: "mins drive",
-                explore_tag: "05 // EXPLORE", explore_title: "Extend your trip", explore_desc: "If you would like to take advantage of your visit to Italy to explore the region, here are some of our recommendations.",
-                exp1_loc: "Langhe", exp1_title: "Barolo Tasting", exp1_desc: "todo", exp_btn: "Learn more",
-                exp2_loc: "Turin", exp2_title: "Turin", exp2_desc: "todo",
-                exp3_loc: "Liguria", exp3_title: "The Ligurian Coast", exp3_desc: "todo",
-            }
+				nav_home: "Home", nav_prog: "Schedule", nav_travel: "Travel", nav_hotel: "Hotels", nav_explore: "Explore",
+				hero_tag: "01 // OUR WEDDING", hero_title: "\"United by love, guided by our cultures.\"", hero_date: "May 29, 2027 - Cherasco, Italy", hero_todo: "We have chosen to say 'yes' to each other before God in the heart of Italy, surrounded by the people we love most. Join us in Cherasco to share these unforgettable moments, filled with laughter, good food, and celebrations.",
+				prog_tag: "02 // THE SCHEDULE", prog_title: "Wedding Calendar",
+				ev1_date: "Friday, May 28, 2027", ev1_title: "Welcome Spritz", ev1_loc: "Location TBD", ev1_desc: "Join us to kick off the weekend with local wines, spritzes, and breathtaking views over the Langhe hills.",
+				ev2_date: "Saturday, May 29, 2027", ev2_title: "The Church Ceremony", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2_desc: "<em><strong>«So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate.»</strong></em> (Matthew 19:6)",
+				ev2b_date: "Saturday, May 29, 2027", ev2b_title: "Photo session with our guests", ev2b_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2b_desc: "Photo session with our guests in front of the church, in the city center, and then at the reception venue.",
+				ev3_date: "Saturday, May 29, 2027", ev3_title: "Cocktail and Dinner", ev3_loc: "Corte Marinetta, Cherasco", ev3_desc: "The party will take place at the fabulous <em><strong>Corte Marinetta</em></strong> venue, located just a 5-minute drive from the church. On the agenda: a rich cocktail hour, Italian specialties on the menu, and an open bar. Secured parking.",
+				ev4_date: "Saturday, May 29, 2027", ev4_title: "Let's Dance!", ev4_loc: "Corte Marinetta, Cherasco", ev4_desc: "Time to dance the night away at Corte Marinetta! Enjoy the open bar and a mix of Afro and Italian music to dance until the end of the night.",
+				travel_tag: "03 // HOW TO GET THERE", travel_title: "All Roads Lead to Cherasco", travel_desc: "If you are coming from abroad, we recommend arriving at <strong style='color:#B49CDB;'>Turin</strong> or <strong style='color:#B49CDB;'>Genoa</strong> airport. <br><br><em>A car is highly recommended.</em>",
+				avion_title: "Plane", train_title: "Train", voiture_title: "Car",
+				avion_howto: "<p style='margin-bottom: 15px;'>Here are the best options from Paris:</p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Paris CDG &rarr; Turin with Air France</strong><br>Friday, May 28 at 8:15 AM<br>Saturday, May 29 at 8:15 AM</li><li><strong>Paris Orly &rarr; Genoa with Volotea</strong><br>Friday, May 28 at 8:30 AM <em style='font-size: 0.9em; color: var(--lavender);'>(often the cheapest option)</em></li></ul><p style='margin-bottom: 0;'><strong>Once there:</strong> renting a car is recommended. Otherwise, see the train section (steps 2 and 3)</p>",
+				avion_mode: "Flight + Car/Train", avion_time: "3 Hours",
+				train_howto: "<p style='margin-bottom: 15px;'>There are three steps:</p><ol style='padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Paris Gare de Lyon &rarr;<br> Torino Porta Susa</strong> (duration 5h50)<ul style='list-style-type: disc; padding-left: 20px; margin-top: 10px;'><li style='margin-bottom: 5px;'><strong style='color: var(--yellow);'>With TGV:</strong> Friday, May 28 at 6:45 AM</li><li><strong style='color: var(--yellow);'>Or with Frecciarossa:</strong> <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>tickets here</a> (not yet available).</li></ul></li><li style='margin-bottom: 15px;'><strong>Torino Porta Susa &rarr; Alba</strong>: several trains, <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>tickets here</a> or buy on site (cost €7.10, duration 1h20)</li><li><strong>Alba &rarr; Cherasco:</strong> 10 min by car. Someone will pick you up.</li></ol>",
+				train_mode: "Two trains", train_time: "~7.30 Hours",
+				voiture_howto: "<p style='margin-bottom: 15px;'>This is the most flexible and recommended option. We recommend the route through <strong>Lyon</strong> rather than the one through Switzerland.</p><p style='margin-bottom: 15px;'>At the <strong>Fréjus Tunnel</strong>, you can buy a return ticket if you are staying less than 7 days in Italy.</p><p style='margin-bottom: 10px;'><strong style='color: var(--yellow);'>Estimated ROUND-TRIP cost:</strong></p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 0;'><li style='margin-bottom: 5px;'><strong>Tolls:</strong> €239 incl. Fréjus Tunnel</li><li> <strong>Fuel:</strong> ~€250</li></ul>",
+				voiture_mode: "Car", voiture_time: "~9h00",
+				travel_mode: "Mode", travel_time: "Total duration",
+				hotel_tag: "04 // ACCOMMODATION", hotel_title: "Where to Stay", hotel_desc: "We have selected a list of our favorite local hotels and inns to ensure your stay is as comfortable as it is beautiful.",
+				hotel_dist: "mins drive",
+				explore_tag: "05 // EXPLORE", explore_title: "Extend your trip", explore_desc: "If you would like to take advantage of your visit to Italy to explore the region, here are some of our recommendations.",
+				exp1_title: "Langhe", exp1_desc: "Recommended towns: Bra, Alba. Recommended if you love wines.",
+				exp2_title: "Turin", exp2_desc: "The ancient capital of Italy. Recommended neighborhoods: Centro, San Salvario, Crocetta.",
+				exp3_title: "The Ligurian Coast", exp3_desc: "Discover the colorful villages and beaches of the Mediterranean Sea.",
+				exp4_title: "The Lakes", exp4_desc: "Lake Como (2h away), Sirmione on Lake Garda (2h away).",
+				exp5_title: "Florence and Siena", exp5_desc: "The jewels of Tuscany, about a 4-hour drive away.",
+				exp6_title: "Local Tip", exp6_desc: "Italy is beautiful but regional trains are often crowded on weekends. If you are driving, don't forget to validate your parking ticket (parcometro) at the local bars/tobacco shops (Tabacchi)!"
+			}
         };
 
         // --- LANGUAGE SWITCH LOGIC ---
