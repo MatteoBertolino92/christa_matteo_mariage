@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Mariage</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --yellow: #EBC444;
+            --yellow-hover: #d4b03c;
+            --lavender: #B49CDB;
+            --lavender-light: #F0EBF7;
+            --dark-bg: #1A1818;
+            --text-light: #F9F9F9;
+            --text-dark: #333333;
+            --text-muted: #777777;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s;
+        }
+        
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: top 0.3s;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-brand {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--yellow);
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--lavender);
+            opacity: 1;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+
+        .lang-switch a {
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0.5;
+            text-decoration: none;
+        }
+
+        .lang-switch a:hover, .lang-switch a.active {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            min-height: 100vh;
+            padding-top: 70px; /* Offset for fixed nav */
+        }
+
+        .hero-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 10%;
+            background-color: #FAFAFA;
+        }
+
+        .section-tag {
+            color: var(--lavender);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 2.6em;
+            color: var(--yellow);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .hero-title .flag {
+            font-size: 2.7rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+			font-style: italic;
+            text-align: justify;
+        }
+
+        .hero-image {
+            flex: 1;
+            background-color: #e0e0e0;
+            background-image: url('https://raw.githubusercontent.com/MatteoBertolino92/christa_matteo_mariage/main/public/mariage_2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- SECTION BASICS --- */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: var(--yellow);
+            margin-bottom: 20px;
+        }
+
+        /* --- PROGRAMME (DARK SECTION) --- */
+        .programme {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+        }
+
+        .programme .section-header h2 {
+            color: var(--yellow);
+        }
+
+        .programme-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* UPDATED EVENT LAYOUT FOR IMAGES */
+        .event {
+            display: grid;
+            grid-template-columns: 250px auto 1fr; /* Date column, Image column, Text column */
+            gap: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 40px;
+            align-items: start;
+        }
+
+        .event-meta {
+            font-size: 0.9rem;
+            color: var(--lavender);
+        }
+
+        .event-meta div {
+            margin-bottom: 8px;
+        }
+
+        /* NEW STYLE FOR EVENT IMAGES */
+        .event-img {
+            width: 150px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 8px; /* Slight rounding for elegance */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .event-title {
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .event-location {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .event-location a {
+            color: var(--lavender);
+            text-decoration: underline;
+            font-size: 0.9em;
+        }
+
+        .event-desc {
+            color: #aaa;
+            font-size: 0.95rem;
+            max-width: 600px;
+        }
+
+        /* --- TRAVEL (LIGHT SECTION) --- */
+        .travel {
+            background-color: #FDFCF9;
+        }
+
+        .travel-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .travel-card {
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        .travel-card h3 {
+            font-size: 2rem;
+            color: var(--yellow);
+            margin-bottom: 30px;
+        }
+
+        /* NEW STYLE FOR MULTIPLE ICONS */
+        .card-icons {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            display: flex;
+            gap: 10px; /* Space between icons */
+            color: var(--lavender);
+            font-size: 1.5rem;
+        }
+
+        .travel-info {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding: 15px 0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        .travel-info strong {
+            color: var(--yellow);
+        }
+
+        /* --- HOTELS (BEIGE SECTION) --- */
+        .hotels {
+            background-color: #F2EFE9;
+        }
+
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .hotel-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .hotel-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        /* Link styling for hotels */
+        .hotel-card h3 a {
+            color: var(--yellow);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .hotel-card h3 a:hover {
+            border-bottom: 1px solid var(--yellow);
+            opacity: 1;
+        }
+
+        .hotel-price {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #fff;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--yellow);
+        }
+
+        .hotel-dist {
+            color: var(--lavender);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- EXPLORE (SPLIT LAYOUT) --- */
+        .explore {
+            background-color: #ffffff;
+            padding: 0; 
+        }
+        
+        .explore-header {
+            text-align: center;
+            padding: 100px 20px 50px 20px;
+        }
+
+        .explore-split {
+            display: flex;
+            min-height: 60vh;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .explore-split.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .explore-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 10%;
+        }
+
+        .explore-location {
+            color: var(--lavender);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .explore-text h3 {
+            font-size: 3rem;
+            color: var(--yellow);
+            margin-bottom: 20px;
+        }
+
+        .explore-text p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 400px;
+        }
+
+        .btn-link {
+            color: var(--yellow);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--yellow);
+            padding-bottom: 5px;
+            align-self: flex-start;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .btn-link:hover {
+            color: var(--yellow-hover);
+            border-color: var(--yellow-hover);
+            opacity: 1;
+        }
+
+        .explore-image {
+            flex: 1;
+            background-color: #e0e0e0;
+            background-size: cover;
+            background-position: center;
+            min-height: 400px;
+        }
+
+        /* --- REGISTRY (LAVENDER SECTION) --- */
+        .registry {
+            background-color: var(--lavender);
+            color: white;
+            text-align: center;
+        }
+
+        .registry h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .registry p {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            font-size: 1.1rem;
+        }
+
+        .registry-box {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--lavender);
+            padding: 15px 30px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            opacity: 1;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero, .explore-split, .explore-split.reverse { flex-direction: column; }
+            .hero-image, .explore-image { min-height: 40vh; }
+            .hero-title { font-size: 3.5rem; }
+            
+            /* Mobile layout for events: Stack everything */
+            .event { 
+                grid-template-columns: 1fr; 
+                gap: 20px; 
+            }
+            .event-img {
+                width: 100%;
+                height: 200px;
+            }
+            
+            .section-header h2, .registry h2 { font-size: 2.5rem; }
+            .explore-text h3 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">M&Mme Bertolino</a>
+            <div class="nav-links">
+                <a href="#home" data-lang="nav_home">Accueil</a>
+                <a href="#programme" data-lang="nav_prog">Programme</a>
+                <a href="#travel" data-lang="nav_travel">Voyage</a>
+                <a href="#hotels" data-lang="nav_hotel">Hôtels</a>
+                <a href="#explore" data-lang="nav_explore">Découvrir</a>
+            </div>
+            <!-- LANGUAGE LINKS -->
+            <div class="lang-switch">
+                <a href="#fr" class="lang-btn active" id="btn-fr" title="Français">🇫🇷</a>
+                <a href="#it" class="lang-btn" id="btn-it" title="Italiano">🇮🇹</a>
+                <a href="#en" class="lang-btn" id="btn-en" title="English">🇬🇧</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <div class="section-tag" data-lang="hero_tag">01 // NOTRE MARIAGE</div>
+            <h1 class="hero-title">
+                <span data-lang="hero_title">Nous</span> 
+            </h1>
+            <p class="hero-subtitle" data-lang="hero_date">29 Mai 2027 - Cherasco, Italie</p>
+            <p class="hero-subtitle" style="margin-top: 20px;" data-lang="hero_todo">[Todo : Ajouter votre texte de bienvenue ici]</p>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <!-- PROGRAMME SECTION -->
+    <section id="programme" class="programme">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" data-lang="prog_tag">02 // LE PROGRAMME</div>
+                <h2 data-lang="prog_title">Calendrier du mariage</h2>
+            </div>
+            
+            <div class="programme-grid">
+                
+                <!-- Event 1 -->
+                <div class="event">
+                    <div class="event-meta">
+                        <div><i class="fa-regular fa-calendar"></i> <span data-lang="ev1_date">Vendredi 28 mai 2027</span></div>
+                        <div><i class="fa-regular fa-clock"></i> 18:00</div>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title" data-lang="ev1_title">Spritz de Bienvenue</h3>
+                        <div class="event-location">
+                            <i class="fa-solid fa-location-dot"></i> 
+                            <span data-lang="ev1_loc">Lieu à définir</span>
+                        </div>
+                        <p class="event-desc" data-lang="ev1_desc">Rejoignez-nous pour lancer le week-end avec des vins locaux, des spritz et des vues à couper le souffle sur les collines des Langhe.</p>
+                    </div>
+					<img src="https://raw.githubusercontent.com/MatteoBertolino92/christa_matteo_mariage/refs/heads/main/public/apero.jpg" alt="Spritz" class="event-img">
+                </div>
+
+                <!-- Event 2A -->
+                <div class="event">
+                    <div class="event-meta">
+                        <div><i class="fa-regular fa-calendar"></i> <span data-lang="ev2_date">Samedi 29 mai 2027</span></div>
+                        <div><i class="fa-regular fa-clock"></i> 15:3O</div>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title" data-lang="ev2_title">L'église</h3>
+                        <div class="event-location">
+                            <i class="fa-solid fa-location-dot"></i> 
+                            <span data-lang="ev2_loc">Santuario di Nostra Signora del Popolo, Cherasco</span>
+                            <a href="https://maps.app.goo.gl/zqtJXxmSssuTo3Hz8" target="_blank">Google Maps</a>
+                        </div>
+                        <p class="event-desc" data-lang="ev2_desc">Nous échangeons nos vœux dans la magnifique église de Cherasco. Veuillez arriver 30 minutes à l'avance. Parking facile.</p>
+                    </div>
+					<img src="https://raw.githubusercontent.com/MatteoBertolino92/christa_matteo_mariage/refs/heads/main/public/santuario.jpg" alt="Placeholder" class="event-img">
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event">
+                    <div class="event-meta">
+                        <div><i class="fa-regular fa-calendar"></i> <span data-lang="ev2_date">Samedi 29 mai 2027</span></div>
+                        <div><i class="fa-regular fa-clock"></i> ~17:00</div>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title" data-lang="ev2b_title">Photo</h3>
+                        <div class="event-location">
+                            <i class="fa-solid fa-location-dot"></i> 
+                            <span data-lang="ev2b_loc">Santuario di Nostra Signora del Popolo, Cherasco</span>
+                            <a href="https://maps.app.goo.gl/zqtJXxmSssuTo3Hz8" target="_blank">Google Maps</a>
+                        </div>
+                        <p class="event-desc" data-lang="ev2b_desc">Séance photo avec nos invités</p>
+                    </div>
+					<img src="https://raw.githubusercontent.com/MatteoBertolino92/christa_matteo_mariage/refs/heads/main/public/backstage.png" alt="Placeholder" class="event-img">
+                </div>
+				
+                <!-- Event 3 -->
+				<div class="event">
+                    <div class="event-meta">
+                        <div><i class="fa-regular fa-calendar"></i> <span data-lang="ev3_date">Samedi 29 mai 2027</span></div>
+                        <div><i class="fa-regular fa-clock"></i> 18:00 - ~22h45</div>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title" data-lang="ev3_title">La fête et le diner</h3>
+                        <div class="event-location">
+                            <i class="fa-solid fa-location-dot"></i> 
+                            <span data-lang="ev3_loc">Corte Marinetta, Cherasco</span>
+                            <a href="https://maps.app.goo.gl/AVnTUJksshuyp9Ca8" target="_blank">Google Maps</a>
+                        </div>
+                        <p class="event-desc" data-lang="ev3_desc">La fête se déroulera dans la fabuleuse location de la Corte Marinetta, située à seulement 5 minutes de voiture de l'église. Au programme : un riche apéritif, un excellent menu italien et open bar. Parking surveillé.</p>
+                    </div>
+					<img src="https://raw.githubusercontent.com/MatteoBertolino92/christa_matteo_mariage/refs/heads/main/public/corte.jpg" alt="Placeholder" class="event-img">
+                </div>
+				
+                <!-- Event 4 -->
+				<div class="event">
+                    <div class="event-meta">
+                        <div><i class="fa-regular fa-calendar"></i> <span data-lang="ev4_date">Samedi 29 mai 2027</span></div>
+                        <div><i class="fa-regular fa-clock"></i> ~23h00 - 3h00</div>
+                    </div>
+                    <div class="event-details">
+                        <h3 class="event-title" data-lang="ev4_title">Alors on danse!</h3>
+                        <div class="event-location">
+                            <i class="fa-solid fa-location-dot"></i> 
+                            <span data-lang="ev4_loc">Corte Marinetta, Cherasco</span>
+                            <a href="https://maps.app.goo.gl/AVnTUJksshuyp9Ca8" target="_blank">Google Maps</a>
+                        </div>
+                        <p class="event-desc" data-lang="ev4_desc">Place à la soirée dansante à la Corte Marinetta ! Profitez de l'open bar, de musique afro et italienne pour danser jusqu'au bout de la nuit.</p>
+                    </div>
+					<img src="https://raw.githubusercontent.com/MatteoBertolino92/christa_matteo_mariage/refs/heads/main/public/danse.avif" alt="Placeholder" class="event-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAVEL SECTION -->
+    <section id="travel" class="travel">
+        <div class="container">
+            <div class="section-header" style="text-align: justify;">
+                <div class="section-tag" data-lang="travel_tag">03 // COMMENT ARRIVER</div>
+                <h2 data-lang="travel_title">Tous les Chemins Mènent à Cherasco</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;" data-lang="travel_desc">Si vous venez de l'étranger, nous vous conseillons d'arriver à l'aéroport de <strong style='color:#B49CDB;'>Turin</strong> ou de <strong style='color:#B49CDB;'>Gênes</strong>. <br><br><em>Une voiture est toutefois recommandée.</em></p>
+            </div>
+            
+            <div class="travel-cards">
+                <!-- Avion -->
+                <div class="travel-card">
+                    <div class="card-icons">
+                        <i class="fa-solid fa-plane"></i>
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <h3 data-lang="avion_title">Avion</h3>
+                    <div class="travel-info"><span data-lang="travel_mode">Mode</span><strong data-lang="avion_mode">Flight + Car</strong></div>
+                    <div class="travel-info"><span data-lang="travel_time">Durée</span><strong data-lang="avion_time">4.5 Hours</strong></div>
+                    <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem; text-align: justify;" data-lang="avion_howto">todo</p>
+                </div>
+				
+				<!-- Train -->
+                <div class="travel-card">
+                    <div class="card-icons">
+                        <i class="fa-solid fa-train"></i>
+                    </div>
+                    <h3 data-lang="train_title">Train</h3>
+                    <div class="travel-info"><span data-lang="travel_mode">Mode</span><strong data-lang="train_mode">Train</strong></div>
+                    <div class="travel-info"><span data-lang="travel_time">Durée</span><strong data-lang="train_time">~7/8 Hours</strong></div>
+                    <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem; text-align: justify;" data-lang="train_howto">todo</p>
+                </div>
+				
+				<!-- Voiture -->
+                <div class="travel-card">
+                    <div class="card-icons">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <h3 data-lang="voiture_title">Voiture</h3>
+                    <div class="travel-info"><span data-lang="travel_mode">Mode</span><strong data-lang="voiture_mode">Car</strong></div>
+                    <div class="travel-info"><span data-lang="travel_time">Durée</span><strong data-lang="voiture_time">9 Houres</strong></div>
+                    <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem; text-align: justify;" data-lang="voiture_howto">todo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOTELS SECTION -->
+    <section id="hotels" class="hotels">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag" data-lang="hotel_tag">04 // HÉBERGEMENT</div>
+                <h2 data-lang="hotel_title">Où Séjourner</h2>
+                <p style="color: var(--text-muted); max-width: 600px;" data-lang="hotel_desc">On va sélectionné une liste des hôtels à vous conseiller: soyez patients, on va les publier bientôt!</p>
+            </div>
+            
+            <div class="hotel-grid">
+                <div class="hotel-card" style="position: relative;">
+                    <div class="hotel-price">€</div>
+                    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&q=80&w=600" alt="Hotel 1">
+                    <h3><a href="https://maps.google.com/?q=Hotel+1+Placeholder" target="_blank">Hotel 1</a></h3>
+                    <div class="hotel-dist"><i class="fa-solid fa-location-dot"></i> <span data-lang="hotel_dist">15 mins en voiture</span></div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">todo</p>
+                </div>
+                <div class="hotel-card" style="position: relative;">
+                    <div class="hotel-price">€€</div>
+                    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&q=80&w=600" alt="Hotel 2">
+                    <h3><a href="https://maps.google.com/?q=Hotel+2+Placeholder" target="_blank">Hotel 2</a></h3>
+                    <div class="hotel-dist"><i class="fa-solid fa-location-dot"></i> <span data-lang="hotel_dist">20 mins en voiture</span></div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">todo</p>
+                </div>
+                <div class="hotel-card" style="position: relative;">
+                    <div class="hotel-price">€€€</div>
+                    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&q=80&w=600" alt="Hotel 3">
+                    <h3><a href="https://maps.google.com/?q=Hotel+3+Placeholder" target="_blank">Hotel 3</a></h3>
+                    <div class="hotel-dist"><i class="fa-solid fa-location-dot"></i> <span data-lang="hotel_dist">10 mins en voiture</span></div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">todo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE SECTION -->
+    <section id="explore" class="explore">
+        <div class="explore-header">
+            <div class="section-tag" data-lang="explore_tag">05 // EXPLORER</div>
+            <h2 style="font-size: 3.5rem; color: var(--yellow);" data-lang="explore_title">Prolongez votre voyage</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto 0 auto;" data-lang="explore_desc">Si vous souhaitez profiter de votre venue en Italie pour explorer la région, voici quelques-unes de nos recommandations.</p>
+        </div>
+
+        <!-- Langhe -->
+        <div class="explore-split">
+            <div class="explore-text">
+                <div class="explore-location"><i class="fa-solid fa-location-dot"></i> <span data-lang="exp1_loc">Les Langhe</span></div>
+                <h3 data-lang="exp1_title">Dégustation de Barolo</h3>
+                <p data-lang="exp1_desc">todo</p>
+                <a href="#" class="btn-link" data-lang="exp_btn">En savoir plus</a>
+            </div>
+            <div class="explore-image" style="background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=1000');"></div>
+        </div>
+
+        <!-- Turin -->
+        <div class="explore-split reverse">
+            <div class="explore-text">
+                <div class="explore-location"><i class="fa-solid fa-location-dot"></i> <span data-lang="exp2_loc">Turin</span></div>
+                <h3 data-lang="exp2_title">Turin</h3>
+                <p data-lang="exp2_desc">todo</p>
+                <a href="#" class="btn-link" data-lang="exp_btn">En savoir plus</a>
+            </div>
+            <div class="explore-image" style="background-image: url('https://images.unsplash.com/photo-1572366933033-118ce4e7580c?auto=format&fit=crop&q=80&w=1000');"></div>
+        </div>
+
+        <!-- Liguria -->
+        <div class="explore-split">
+            <div class="explore-text">
+                <div class="explore-location"><i class="fa-solid fa-location-dot"></i> <span data-lang="exp3_loc">Ligurie</span></div>
+                <h3 data-lang="exp3_title">La Côte Ligure</h3>
+                <p data-lang="exp3_desc">todo</p>
+                <a href="#" class="btn-link" data-lang="exp_btn">En savoir plus</a>
+            </div>
+            <div class="explore-image" style="background-image: url('https://images.unsplash.com/photo-1516483638261-f4085ee6b3f2?auto=format&fit=crop&q=80&w=1000');"></div>
+        </div>
+    </section>
+
+    <!-- JAVASCRIPT FOR TRANSLATIONS -->
+    <script>
+        // --- TRANSLATION DICTIONARY ---
+        const translations = {
+            fr: {
+                nav_home: "Accueil", nav_prog: "Programme", nav_travel: "Voyage", nav_hotel: "Hôtels", nav_explore: "Découvrir",
+                hero_tag: "01 // NOTRE MARIAGE", hero_title: "\"Unis par l'amour, portés par nos cultures.\"", hero_date: "29 Mai 2027 - Cherasco, Italie", hero_todo: "Nous avons choisi de nous dire 'oui' devant Dieu au cœur de l'Italie, entourés des personnes qui nous sont les plus chères. Rejoignez-nous à Cherasco pour partager ces moments inoubliables, entre rires, de la bonne nourriture et célébrations.",
+                prog_tag: "02 // LE PROGRAMME", prog_title: "Calendrier du mariage",
+                ev1_date: "Vendredi 28 mai 2027", ev1_title: "Spritz de Bienvenue", ev1_loc: "Lieu à définir", ev1_desc: "Rejoignez-nous pour lancer le week-end avec des vins locaux, des spritz et des vues à couper le souffle sur les collines des Langhe.",
+                ev2_date: "Samedi 29 mai 2027", ev2_title: "La Cérémonie à l'église", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2_desc: "<em><strong>«Ainsi, ils ne sont plus deux, mais une seule chair. Donc, ce que Dieu a uni, que l'homme ne le sépare pas !»</strong></em> (Matthieu 19:6)",
+				ev2b_date: "Samedi 29 mai 2027", ev2b_title: "Séance photo avec nos invités", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2b_desc: "Séance photo avec nos invités devant l'église, au centre ville, et ensuite sur le lieu de réception",
+				ev3_date: "Samedi 29 mai 2027", ev3_title: "Cocktail et diner", ev3_loc: "Corte Marinetta, Cherasco", ev3_desc: "La fête se déroulera dans le fabuleux lieu de réception <em><strong>Corte Marinetta</em></strong>, situé à seulement 5 minutes de voiture de l'église. Au programme : un riche cocktail, des spécialitées italiennes au menu et un open bar. Parking surveillé.",
+				ev4_date: "Samedi 29 mai 2027", ev4_title: "Alors on danse!", ev4_loc: "Corte Marinetta, Cherasco", ev4_desc: "Place à la soirée dansante à la Corte Marinetta ! Profitez de l'open bar, de musique afro et italienne pour danser jusqu'au bout de la nuit.",
+                travel_tag: "03 // COMMENT ARRIVER", travel_title: "Tous les Chemins Mènent à Cherasco", travel_desc: "Si vous venez de l'étranger, nous vous conseillons d'arriver à l'aéroport de <strong style='color:#B49CDB;'>Turin</strong> ou de <strong style='color:#B49CDB;'>Gênes</strong>. <br><br><em>Une voiture est toutefois recommandée.</em>",
+                avion_title: "Avion", train_title: "Train", voiture_title: "Voiture",
+                avion_howto: "<p style='margin-bottom: 15px;'>Voici les meilleures options depuis Paris :</p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Paris CDG &rarr; Torino avec Air France</strong><br>Vendredi 28 mai à 8h15<br>Samedi 29 mai à 8h15</li><li><strong>Paris Orly &rarr; Gênes avec Volotea</strong><br>Vendredi 28 mai à 8h30 <em style='font-size: 0.9em; color: var(--lavender);'>(souvent l'option la moins chère)</em></li></ul><p style='margin-bottom: 0;'><strong>Une fois sur place :</strong> la location d'une voiture est recommandée. Sinon, consultez la section train (étapes 2 et 3)</p>",
+                avion_mode: "Vol + Voiture/Train", avion_time: "3 Heures",
+				train_howto: "<p style='margin-bottom: 15px;'>Il y a trois étapes :</p><ol style='padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Paris Gare de Lyon &rarr;<br> Torino Porta Susa</strong> (durée 5h50)<ul style='list-style-type: disc; padding-left: 20px; margin-top: 10px;'><li style='margin-bottom: 5px;'><strong style='color: var(--yellow);'>Avec TGV :</strong> vendredi 28 à 6h45</li><li><strong style='color: var(--yellow);'>Ou avec Frecciarossa :</strong> <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>tickets ici</a> (pas encore disponibles).</li></ul></li><li style='margin-bottom: 15px;'><strong>Torino Porta Susa &rarr; Alba</strong> : plusieurs trains, <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>tickets ici</a> ou à acheter sur place (coût 7.10€, durée 1h20)</li><li><strong>Alba &rarr; Cherasco :</strong> 10 min de voiture. Quelqu'un viendra vous chercher.</li></ol>",
+                train_mode: "Deux trains", train_time: "~7.30 Heures",
+				voiture_howto: "<p style='margin-bottom: 15px;'>C'est l'option la plus flexible et recommandée. Nous conseillons l'itinéraire qui passe par <strong>Lyon</strong> et non celui qui traverse la Suisse.</p><p style='margin-bottom: 15px;'>Au <strong>Tunnel du Fréjus</strong>, vous pouvez prendre un ticket aller/retour si vous restez moins de 7 jours en Italie.</p><p style='margin-bottom: 10px;'><strong style='color: var(--yellow);'>Coût ALLER/RETOUR :</strong></p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 0;'><li style='margin-bottom: 5px;'><strong>Péage:</strong> 239€ y.c. tunnel du Fréjus</li><li> <strong>Carburant:</strong> ~250€</li></ul>",
+                voiture_mode: "Voiture", voiture_time: "~9h00",
+                travel_mode: "Mode", travel_time: "Durée totale",
+                hotel_tag: "04 // HÉBERGEMENT", hotel_title: "Où Séjourner", hotel_desc: "On va sélectionné une liste des hôtels à vous conseiller: soyez patients, on va les publier bientôt!",
+                hotel_dist: "mins en voiture",
+                explore_tag: "05 // EXPLORER", explore_title: "Prolongez votre voyage", explore_desc: "Si vous souhaitez profiter de votre venue en Italie pour explorer la région, voici quelques-unes de nos recommandations.",
+                exp1_loc: "Les Langhe", exp1_title: "Dégustation de Barolo", exp1_desc: "todo", exp_btn: "En savoir plus",
+                exp2_loc: "Turin", exp2_title: "Turin", exp2_desc: "todo",
+                exp3_loc: "Ligurie", exp3_title: "La Côte Ligure", exp3_desc: "todo",
+            },
+            it: {
+                nav_home: "Home", nav_prog: "Programma", nav_travel: "Viaggio", nav_hotel: "Hotel", nav_explore: "Esplora",
+                hero_tag: "01 // IL NOSTRO MATRIMONIO", hero_title: "Da Bangui a Parigi, un amore in Italia 🇨🇫 🇮🇹 🇫🇷", hero_date: "29 Maggio 2027 - Cherasco, Italia", hero_todo: "Abbiamo scelto di dirci 'sì' davanti a Dio nel cuore dell'Italia, circondati dalle persone a noi più care. Unisciti a noi a Cherasco per condividere questi momenti indimenticabili, tra risate, buon cibo e festeggiamenti.",
+                prog_tag: "02 // IL PROGRAMMA", prog_title: "Calendario del matrimonio",
+                ev1_date: "Venerdì 28 maggio 2027", ev1_title: "Spritz di Benvenuto", ev1_loc: "Luogo da definire", ev1_desc: "Unisciti a noi per iniziare il weekend con vini locali, spritz e viste mozzafiato sulle colline delle Langhe.",
+                ev2_date: "Sabato 29 maggio 2027", ev2_title: "La Cerimonia in chiesa", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2_desc: "Ci scambiamo i voti nella bellissima chiesa di Cherasco. Vi preghiamo di arrivare in orario. Parcheggio facile.",
+				ev3_date: "Sabato 29 maggio 2027", ev3_title: "Ricevimento e cena", ev3_loc: "Corte Marinetta, Cherasco", ev3_desc: "La festa si svolgerà nella favolosa location della Corte Marinetta, situata a soli 5 minuti di auto dalla chiesa. In programma: un ricco aperitivo, un ottimo menù italiano e open bar. Parcheggio sorvegliato.",
+				ev4_date: "Sabato 29 maggio 2027", ev4_title: "E ora si balla!", ev4_loc: "Corte Marinetta, Cherasco", ev4_desc: "Spazio alla serata danzante alla Corte Marinetta! Approfittate dell'open bar e della musica afro e italiana per ballare fino a notte fonda.",
+                travel_tag: "03 // COME ARRIVARE", travel_title: "Tutte le strade portano a Cherasco", travel_desc: "Se venite dall'estero, vi consigliamo di arrivare all'aeroporto di <strong style='color:#B49CDB;'>Torino</strong> o <strong style='color:#B49CDB;'>Genova</strong>. <br><br><em>Si consiglia comunque l'uso dell'auto.</em>",
+                avion_title: "Aereo", train_title: "Treno", voiture_title: "Auto",
+                avion_howto: "<p style='margin-bottom: 15px;'>Ecco le migliori opzioni da Parigi:</p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Parigi CDG &rarr; Torino con Air France</strong><br>Venerdì 28 maggio alle 8:15<br>Sabato 29 maggio alle 8:15</li><li><strong>Parigi Orly &rarr; Genova con Volotea</strong><br>Venerdì 28 maggio alle 8:30 <em style='font-size: 0.9em; color: var(--lavender);'>(spesso l'opzione più economica)</em></li></ul><p style='margin-bottom: 0;'><strong>Una volta arrivati:</strong> si consiglia il noleggio di un'auto. In alternativa, consultare la sezione treno (tappe 2 e 3)</p>",
+                avion_mode: "Volo + Auto/Treno", avion_time: "3 Ore",
+				train_howto: "<p style='margin-bottom: 15px;'>Ci sono tre tappe:</p><ol style='padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Parigi Gare de Lyon &rarr;<br> Torino Porta Susa</strong> (durata 5h50)<ul style='list-style-type: disc; padding-left: 20px; margin-top: 10px;'><li style='margin-bottom: 5px;'><strong style='color: var(--yellow);'>Con TGV:</strong> venerdì 28 alle 6:45</li><li><strong style='color: var(--yellow);'>O con Frecciarossa:</strong> <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>biglietti qui</a> (non ancora disponibili).</li></ul></li><li style='margin-bottom: 15px;'><strong>Torino Porta Susa &rarr; Alba</strong>: diversi treni, <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>biglietti qui</a> o da acquistare in loco (costo 7,10€, durata 1h20)</li><li><strong>Alba &rarr; Cherasco:</strong> 10 minuti in auto. Qualcuno verrà a prendervi.</li></ol>",
+                train_mode: "Due treni", train_time: "~7.30 Ore",
+				voiture_howto: "<p style='margin-bottom: 15px;'>Questa è l'opzione più flessibile e consigliata. Consigliamo l'itinerario che passa per <strong>Lione</strong> e non quello che passa per la Svizzera.</p><p style='margin-bottom: 15px;'>Al <strong>Tunnel del Fréjus</strong>, potete acquistare un biglietto andata e ritorno se soggiornate meno di 7 giorni in Italia.</p><p style='margin-bottom: 10px;'><strong style='color: var(--yellow);'>Costo ANDATA/RITORNO:</strong></p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 0;'><li style='margin-bottom: 5px;'><strong>Pedaggi:</strong> 239€ incluso il Tunnel del Fréjus</li><li> <strong>Carburante:</strong> ~250€</li></ul>",
+                voiture_mode: "Auto", voiture_time: "~9h00",
+                travel_mode: "Mezzo", travel_time: "Durata totale",
+                hotel_tag: "04 // ALLOGGIO", hotel_title: "Dove Soggiornare", hotel_desc: "Abbiamo selezionato un elenco dei nostri hotel e locande locali preferiti per garantire che il tuo soggiorno sia comodo e bello.",
+                hotel_dist: "minuti di auto",
+                explore_tag: "05 // ESPLORA", explore_title: "Prolunga il tuo viaggio", explore_desc: "Se desideri approfittare della tua visita in Italia per esplorare la regione, ecco alcuni dei nostri consigli.",
+                exp1_loc: "Le Langhe", exp1_title: "Degustazione di Barolo", exp1_desc: "todo", exp_btn: "Scopri di più",
+                exp2_loc: "Torino", exp2_title: "Torino", exp2_desc: "todo",
+                exp3_loc: "Liguria", exp3_title: "La Costa Ligure", exp3_desc: "todo",
+            },
+            en: {
+                nav_home: "Home", nav_prog: "Schedule", nav_travel: "Travel", nav_hotel: "Hotels", nav_explore: "Explore",
+                hero_tag: "01 // OUR WEDDING", hero_title: "From Bangui to Paris, a love story in Italy 🇨🇫 🇮🇹 🇫🇷", hero_date: "May 29, 2027 - Cherasco, Italy", hero_todo: "We have chosen to say 'yes' to each other in the heart of Italy, surrounded by the people we love most. Join us in Cherasco to share these unforgettable moments, filled with laughter, good food, and celebrations.",
+                prog_tag: "02 // THE SCHEDULE", prog_title: "Wedding Calendar",
+                ev1_date: "Friday, May 28, 2027", ev1_title: "Welcome Spritz", ev1_loc: "Location TBD", ev1_desc: "Join us to kick off the weekend with local wines, spritzes, and breathtaking views over the Langhe hills.",
+                ev2_date: "Saturday, May 29, 2027", ev2_title: "The Church Ceremony", ev2_loc: "Santuario di Nostra Signora del Popolo, Cherasco", ev2_desc: "We exchange our vows in the beautiful church of Cherasco. Please arrive on time. Easy parking.",
+                ev3_date: "Saturday, May 29, 2027", ev3_title: "Cocktail and Dinner", ev3_loc: "Corte Marinetta, Cherasco", ev3_desc: "The party will take place at the fabulous Corte Marinetta venue, located just a 5-minute drive from the church. On the agenda: a rich aperitif, an excellent Italian menu, and an open bar. Secured parking.",
+                ev4_date: "Saturday, May 29, 2027", ev4_title: "Let's Dance!", ev4_loc: "Corte Marinetta, Cherasco", ev4_desc: "Time to dance the night away at Corte Marinetta! Enjoy the open bar and a mix of Afro and Italian music to dance until the end of the night.",
+                travel_tag: "03 // HOW TO GET THERE", travel_title: "All Roads Lead to Cherasco", travel_desc: "If you are coming from abroad, we recommend arriving at <strong style='color:#B49CDB;'>Turin</strong> or <strong style='color:#B49CDB;'>Genoa</strong> airport. <br><br><em>A car is highly recommended.</em>",
+                avion_title: "Plane", train_title: "Train", voiture_title: "Car",
+                avion_howto: "<p style='margin-bottom: 15px;'>Here are the best options from Paris:</p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Paris CDG &rarr; Turin with Air France</strong><br>Friday, May 28 at 8:15 AM<br>Saturday, May 29 at 8:15 AM</li><li><strong>Paris Orly &rarr; Genoa with Volotea</strong><br>Friday, May 28 at 8:30 AM <em style='font-size: 0.9em; color: var(--lavender);'>(often the cheapest option)</em></li></ul><p style='margin-bottom: 0;'><strong>Once there:</strong> renting a car is recommended. Otherwise, see the train section (steps 2 and 3)</p>",
+                avion_mode: "Flight + Car/Train", avion_time: "3 Hours",
+                train_howto: "<p style='margin-bottom: 15px;'>There are three steps:</p><ol style='padding-left: 20px; margin-bottom: 15px;'><li style='margin-bottom: 15px;'><strong>Paris Gare de Lyon &rarr;<br> Torino Porta Susa</strong> (duration 5h50)<ul style='list-style-type: disc; padding-left: 20px; margin-top: 10px;'><li style='margin-bottom: 5px;'><strong style='color: var(--yellow);'>With TGV:</strong> Friday, May 28 at 6:45 AM</li><li><strong style='color: var(--yellow);'>Or with Frecciarossa:</strong> <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>tickets here</a> (not yet available).</li></ul></li><li style='margin-bottom: 15px;'><strong>Torino Porta Susa &rarr; Alba</strong>: several trains, <a href='https://trenitalia.fr/' target='_blank' style='color:var(--lavender); text-decoration:underline;'>tickets here</a> or buy on site (cost €7.10, duration 1h20)</li><li><strong>Alba &rarr; Cherasco:</strong> 10 min by car. Someone will pick you up.</li></ol>",
+                train_mode: "Two trains", train_time: "~7.30 Hours",
+                voiture_howto: "<p style='margin-bottom: 15px;'>This is the most flexible and recommended option. We recommend the route through <strong>Lyon</strong> rather than the one through Switzerland.</p><p style='margin-bottom: 15px;'>At the <strong>Fréjus Tunnel</strong>, you can buy a return ticket if you are staying less than 7 days in Italy.</p><p style='margin-bottom: 10px;'><strong style='color: var(--yellow);'>Estimated ROUND-TRIP cost:</strong></p><ul style='list-style-type: disc; padding-left: 20px; margin-bottom: 0;'><li style='margin-bottom: 5px;'><strong>Tolls:</strong> €239 incl. Fréjus Tunnel</li><li> <strong>Fuel:</strong> ~€250</li></ul>",
+                voiture_mode: "Car", voiture_time: "~9h00",
+                travel_mode: "Mode", travel_time: "Total duration",
+                hotel_tag: "04 // ACCOMMODATION", hotel_title: "Where to Stay", hotel_desc: "We have selected a list of our favorite local hotels and inns to ensure your stay is as comfortable as it is beautiful.",
+                hotel_dist: "mins drive",
+                explore_tag: "05 // EXPLORE", explore_title: "Extend your trip", explore_desc: "If you would like to take advantage of your visit to Italy to explore the region, here are some of our recommendations.",
+                exp1_loc: "Langhe", exp1_title: "Barolo Tasting", exp1_desc: "todo", exp_btn: "Learn more",
+                exp2_loc: "Turin", exp2_title: "Turin", exp2_desc: "todo",
+                exp3_loc: "Liguria", exp3_title: "The Ligurian Coast", exp3_desc: "todo",
+            }
+        };
+
+        // --- LANGUAGE SWITCH LOGIC ---
+        function changeLanguage(lang) {
+            // Update active button styling
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById('btn-' + lang);
+            if(activeBtn) activeBtn.classList.add('active');
+
+            // Update all text elements
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // --- URL HASH & GEOLOCATION DETECTION ---
+        function initializeLanguage() {
+            // 1. Check if the URL has a hash (e.g., site.com/#it)
+            const hash = window.location.hash.replace('#', '');
+            if (['fr', 'it', 'en'].includes(hash)) {
+                changeLanguage(hash);
+                return; // Stop here if we found a valid hash
+            }
+
+            // 2. If no hash, try Geolocation
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    let lang = 'fr'; // French default
+                    
+                    if (data.country_code === 'IT') {
+                        lang = 'it';
+                    } else if (['HK', 'RU', 'GR', 'DK', 'BG', 'AL', 'LU', 'DE', 'VN', 'CN'].includes(data.country_code)) {
+                        lang = 'en';
+                    }
+                    
+                    changeLanguage(lang);
+                })
+                .catch(error => {
+                    console.log("Geolocation failed, defaulting to French.");
+                    changeLanguage('fr');
+                });
+        }
+
+        // Listen for hash changes (if user clicks the flag links)
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.replace('#', '');
+            if (['fr', 'it', 'en'].includes(hash)) {
+                changeLanguage(hash);
+            }
+        });
+
+        // Run on page load
+        window.onload = initializeLanguage;
+    </script>
+</body>
+</html>
